@@ -1,20 +1,44 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, signal } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
 
 @Component({
   selector: 'app-hex-field',
-  imports: [],
   templateUrl: './hex-field.html',
-  styleUrl: './hex-field.css',
+  styleUrls: ['./hex-field.css'],
 })
-export class HexField {
-  @Input() row:number = 0;
-  @Input() col:number = 0;
+export class HexField implements OnInit, OnDestroy {
+  @Input() row: number = 0;
+  @Input() col: number = 0;
 
-  public Anzeige: number = 0;
+  public Anzeige = signal(0);
+  private dicSub?: Subscription;
 
-  constructor(private researchFieldService: ResearchFieldService) {
+  constructor(private researchFieldService: ResearchFieldService) {}
 
-    this.Anzeige = this.researchFieldService.getHexagonValue(this.col, this.row);
+  ngOnInit(): void {
+    // initialen Wert setzen
+    this.updateAnzeige();
+
+    // auf Änderungen am Dictionary reagieren
+    this.dicSub = this.researchFieldService.DicChanged.subscribe((key: string) => {
+      const [x, y] = this.researchFieldService.toTuple(key);
+      if (x === this.col && y === this.row) {
+        this.updateAnzeige();
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.dicSub?.unsubscribe();
+  }
+
+  onHexClick(): void {
+    this.updateAnzeige();
+  }
+
+  private updateAnzeige(): void {
+    const val = this.researchFieldService.getHexagonValue(this.col, this.row);
+    this.Anzeige.set(val);
   }
 }
