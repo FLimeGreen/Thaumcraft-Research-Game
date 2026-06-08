@@ -1,5 +1,7 @@
 import { Component, Input, ViewChild, ElementRef, OnInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
+import { HexField } from '../hex-field/hex-field';
 
 interface Hexagon {
   id: number;
@@ -13,14 +15,12 @@ interface Hexagon {
 @Component({
   selector: 'app-research-field',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HexField],
   templateUrl: './research-field.html',
   styleUrls: ['./research-field.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResearchField implements OnInit, AfterViewInit, OnDestroy {
-  @Input() rows: number = 20;
-  @Input() cols: number = 20;
   @ViewChild('container', { static: false }) container?: ElementRef<HTMLDivElement>;
 
   hexagons: Hexagon[] = [];
@@ -28,11 +28,18 @@ export class ResearchField implements OnInit, AfterViewInit, OnDestroy {
   containerHeight: number = 500;
   hexSize: number = 0;
   private resizeObserver?: ResizeObserver;
+  rows: number;
+  cols: number;
 
+  
   constructor(
     private changeDetector: ChangeDetectorRef,
-    private ngZone: NgZone
-  ) {}
+    private ngZone: NgZone,
+    private researchFieldService: ResearchFieldService
+  ) {
+    this.rows = this.researchFieldService.NumberOfRows;
+    this.cols = this.researchFieldService.NumberOfCols;
+  }
 
   ngOnInit(): void {
     // Initial layout mit Default-Werten

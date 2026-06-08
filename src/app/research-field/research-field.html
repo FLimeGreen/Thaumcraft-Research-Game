@@ -21,8 +21,7 @@
       [attr.data-id]="hex.id"
     >
       <div class="hex-content-inner">
-        <!-- Hier können Angular Komponenten eingefügt werden -->
-        <p class="hex-label">{{ hex.row }},{{ hex.col }}</p>
+        <app-hex-field [row]="hex.row" [col]="hex.col"></app-hex-field>
       </div>
     </div>
   </div>
