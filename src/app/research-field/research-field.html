@@ -1,0 +1,29 @@
+<div class="hex-container" #container>
+  <svg class="hex-grid" [attr.width]="containerWidth" [attr.height]="containerHeight">
+    <!-- Hexagon Polygone -->
+    <polygon
+      *ngFor="let hex of hexagons"
+      class="hexagon"
+      fill="#ffffff"
+      stroke="#333333"
+      stroke-width="2"
+      [attr.points]="getHexagonPoints(hex)"
+      [attr.data-id]="hex.id"
+    />
+  </svg>
+
+  <!-- Inhalts-Layer für Angular Komponenten -->
+  <div class="hex-content-layer">
+    <div
+      *ngFor="let hex of hexagons"
+      class="hex-content"
+      [ngStyle]="getHexagonStyle(hex)"
+      [attr.data-id]="hex.id"
+    >
+      <div class="hex-content-inner">
+        <!-- Hier können Angular Komponenten eingefügt werden -->
+        <p class="hex-label">{{ hex.row }},{{ hex.col }}</p>
+      </div>
+    </div>
+  </div>
+</div>
