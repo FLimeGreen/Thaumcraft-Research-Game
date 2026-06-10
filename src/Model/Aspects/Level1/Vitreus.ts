@@ -5,7 +5,7 @@ import { Terra } from "../Primal/Terra";
 export class Vitreus extends Aspect {
     constructor(ver_emthy:boolean = false){
 
-        const path_img: string = "/assets/svgs/vitreus.svg";
+        const path_img: string = "/assets/svgs/Vitreus.svg";
         
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);

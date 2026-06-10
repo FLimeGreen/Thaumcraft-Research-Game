@@ -5,7 +5,7 @@ import { Perditio } from "../Primal/Perditio";
 export class Permutatio extends Aspect {
     constructor(ver_emthy:boolean = false){
 
-        const path_img: string = "/assets/svgs/permutatio.svg";
+        const path_img: string = "/assets/svgs/Permutatio.svg";
         
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);

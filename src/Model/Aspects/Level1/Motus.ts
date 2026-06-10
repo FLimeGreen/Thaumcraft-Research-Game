@@ -5,7 +5,7 @@ import { Ordo } from "../Primal/Ordo";
 export class Motus extends Aspect {
     constructor(ver_emthy:boolean = false){
 
-        const path_img: string = "/assets/svgs/motus.svg";
+        const path_img: string = "/assets/svgs/Motus.svg";
         
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);

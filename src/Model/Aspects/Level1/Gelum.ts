@@ -5,7 +5,7 @@ import { Perditio } from "../Primal/Perditio";
 export class Gelum extends Aspect {
     constructor(ver_emthy:boolean = false){
 
-        const path_img: string = "/assets/svgs/gelum.svg";
+        const path_img: string = "/assets/svgs/Gelum.svg";
         
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);

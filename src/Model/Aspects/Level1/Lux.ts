@@ -5,7 +5,7 @@ import { Ignis } from "../Primal/Ignis";
 export class Lux extends Aspect {
     constructor(ver_emthy:boolean = false){
 
-        const path_img: string = "/assets/svgs/lux.svg";
+        const path_img: string = "/assets/svgs/Lux.svg";
         
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);

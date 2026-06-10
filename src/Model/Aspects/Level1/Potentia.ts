@@ -5,7 +5,7 @@ import { Ordo } from "../Primal/Ordo";
 export class Potentia extends Aspect {
     constructor(ver_emthy:boolean = false){
 
-        const path_img: string = "/assets/svgs/potentia.svg";
+        const path_img: string = "/assets/svgs/Potentia.svg";
         
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);
