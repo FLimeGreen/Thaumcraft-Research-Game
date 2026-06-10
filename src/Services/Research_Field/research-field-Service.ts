@@ -12,7 +12,7 @@ interface HexDictionary {
 export class ResearchFieldService {
 
   public readonly NumberOfRows:number = 10;
-  public readonly NumberOfCols:number = 10;
+  public readonly NumberOfCols:number = 27;
 
   private researchField: HexDictionary = {};
 

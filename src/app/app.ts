@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ResearchField } from './research-field/research-field';
+import { ResearchInventoryField } from './research-inventory-field/research-inventory-field';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ResearchField],
+  imports: [RouterOutlet, ResearchField, ResearchInventoryField],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
