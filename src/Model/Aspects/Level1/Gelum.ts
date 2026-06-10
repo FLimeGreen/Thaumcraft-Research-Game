@@ -9,9 +9,9 @@ export class Gelum extends Aspect {
         const path_img: string = "/assets/svgs/Gelum.svg";
         
         if (ver_emthy) {
-            super(EnLevel.Primal, path_img, []);
+            super(EnLevel.Tier1, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [
+            super(EnLevel.Tier1, path_img, [
                 new Ignis(true), 
                 new Perditio(true)
             ]);

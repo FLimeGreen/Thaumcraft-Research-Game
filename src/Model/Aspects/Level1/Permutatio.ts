@@ -9,9 +9,9 @@ export class Permutatio extends Aspect {
         const path_img: string = "/assets/svgs/Permutatio.svg";
         
         if (ver_emthy) {
-            super(EnLevel.Primal, path_img, []);
+            super(EnLevel.Tier1, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [
+            super(EnLevel.Tier1, path_img, [
                 new Ordo(true),
                 new Perditio(true)
             ]);

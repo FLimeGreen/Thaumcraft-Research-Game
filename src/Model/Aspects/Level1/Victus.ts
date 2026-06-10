@@ -9,9 +9,9 @@ export class Victus extends Aspect {
         const path_img: string = "/assets/svgs/Victus.svg";
         
         if (ver_emthy) {
-            super(EnLevel.Primal, path_img, []);
+            super(EnLevel.Tier1, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [
+            super(EnLevel.Tier1, path_img, [
                 new Aqua(true),
                 new Terra(true)
             ]);

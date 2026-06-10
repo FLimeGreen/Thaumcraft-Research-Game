@@ -9,9 +9,9 @@ export class Vacuos extends Aspect {
         const path_img: string = "/assets/svgs/Vacuos.svg";
         
         if (ver_emthy) {
-            super(EnLevel.Primal, path_img, []);
+            super(EnLevel.Tier1, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [
+            super(EnLevel.Tier1, path_img, [
                 new Aer(true),
                 new Perditio(true)
             ]);
