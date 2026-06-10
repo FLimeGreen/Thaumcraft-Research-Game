@@ -1,26 +1,21 @@
-<div class="hex-container" #container>
-  <svg class="hex-grid" [attr.width]="containerWidth" [attr.height]="containerHeight">
-    <!-- Hexagon Polygone -->
+<div class="relative w-full min-h-[50vh] bg-[#f5f5f5]" #container>
+  <svg class="absolute top-0 left-0 w-full h-full min-w-[600px] min-h-[550px] block"
+       [attr.width]="containerWidth" [attr.height]="containerHeight">
     <polygon
       *ngFor="let hex of hexagons"
-      class="hexagon"
-      fill="#ffffff"
-      stroke="#333333"
-      stroke-width="2"
+      class="fill-white stroke-[#333] stroke-2 transition-all duration-300 cursor-pointer hover:fill-[#e8f4f8] hover:stroke-[#0066cc] hover:stroke-[3px]"
       [attr.points]="getHexagonPoints(hex)"
       [attr.data-id]="hex.id"
     />
   </svg>
 
-  <!-- Inhalts-Layer für Angular Komponenten -->
-  <div class="hex-content-layer">
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
     <div
       *ngFor="let hex of hexagons"
-      class="hex-content"
+      class="absolute flex items-center justify-center pointer-events-auto"
       [ngStyle]="getHexagonStyle(hex)"
-      [attr.data-id]="hex.id"
     >
-      <div class="hex-content-inner">
+      <div class="flex items-center justify-center w-full h-full rounded p-2 text-center text-xs text-[#333]">
         <app-hex-field [row]="hex.row" [col]="hex.col"></app-hex-field>
       </div>
     </div>
