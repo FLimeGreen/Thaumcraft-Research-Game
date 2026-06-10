@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Aer } from "../Primal/Aer";
 import { Perditio } from "../Primal/Perditio";
 
@@ -10,7 +11,10 @@ export class Vacuos extends Aspect {
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [new Aer(false), new Perditio(false)]);
+            super(EnLevel.Primal, path_img, [
+                new Aer(true),
+                new Perditio(true)
+            ]);
         }
     }
 }

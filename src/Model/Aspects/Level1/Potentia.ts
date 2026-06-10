@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Ignis } from "../Primal/Ignis";
 import { Ordo } from "../Primal/Ordo";
 
@@ -10,7 +11,10 @@ export class Potentia extends Aspect {
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [new Ignis(false), new Ordo(false)]);
+            super(EnLevel.Primal, path_img, [
+                new Ignis(true),
+                new Ordo(true)
+            ]);
         }
     }
 }

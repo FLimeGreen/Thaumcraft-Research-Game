@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Gelum } from "../Level1/Gelum";
 import { Permutatio } from "../Level1/Permutatio";
 import { Vacuos } from "../Level1/Vacuos";
@@ -13,10 +14,10 @@ export class Perditio extends Aspect {
             super(EnLevel.Primal, path_img, []);
         } else {
             super(EnLevel.Primal, path_img, [
-                new Gelum(false),
-                new Permutatio(false),
-                new Vacuos(false),
-                new Venenum(false)
+                new Gelum(true),
+                new Permutatio(true),
+                new Vacuos(true),
+                new Venenum(true)
             ]);
         }
     }

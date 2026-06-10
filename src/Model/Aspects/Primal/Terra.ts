@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Victus } from "../Level1/Victus";
 import { Vitreus } from "../Level1/Vitreus";
 
@@ -11,8 +12,8 @@ export class Terra extends Aspect {
             super(EnLevel.Primal, path_img, []);
         } else {
             super(EnLevel.Primal, path_img, [
-                new Victus(false),
-                new Vitreus(false)
+                new Victus(true),
+                new Vitreus(true)
             ]);
         }
     }

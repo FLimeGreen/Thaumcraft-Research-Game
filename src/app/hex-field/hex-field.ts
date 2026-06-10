@@ -11,7 +11,7 @@ export class HexField implements OnInit, OnDestroy {
   @Input() row: number = 0;
   @Input() col: number = 0;
 
-  public Anzeige = signal(0);
+  public Anzeige = signal("");
   private dicSub?: Subscription;
 
   constructor(private researchFieldService: ResearchFieldService) {}
@@ -39,6 +39,6 @@ export class HexField implements OnInit, OnDestroy {
 
   private updateAnzeige(): void {
     const val = this.researchFieldService.getHexagonValue(this.col, this.row);
-    this.Anzeige.set(val);
+    this.Anzeige.set(val ? val.constructor.name : "");
   }
 }

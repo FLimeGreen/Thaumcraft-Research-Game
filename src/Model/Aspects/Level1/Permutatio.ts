@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Ordo } from "../Primal/Ordo";
 import { Perditio } from "../Primal/Perditio";
 
@@ -10,7 +11,10 @@ export class Permutatio extends Aspect {
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [new Ordo(false), new Perditio(false)]);
+            super(EnLevel.Primal, path_img, [
+                new Ordo(true),
+                new Perditio(true)
+            ]);
         }
     }
 }

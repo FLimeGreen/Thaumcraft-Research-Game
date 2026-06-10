@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Ignis } from "../Primal/Ignis";
 import { Perditio } from "../Primal/Perditio";
 
@@ -10,7 +11,10 @@ export class Gelum extends Aspect {
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [new Ignis(false), new Perditio(false)]);
+            super(EnLevel.Primal, path_img, [
+                new Ignis(true), 
+                new Perditio(true)
+            ]);
         }
     }
 }

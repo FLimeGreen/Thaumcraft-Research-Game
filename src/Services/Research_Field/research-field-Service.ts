@@ -1,7 +1,9 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Aspect } from '../../Model/Aspects/Aspect';
+import { Aer } from '../../Model/Aspects/Primal/Aer';
 
 interface HexDictionary {
-  [key: string]: number;
+  [key: string]: Aspect | null;
 }
 
 @Injectable({
@@ -20,7 +22,7 @@ export class ResearchFieldService {
     for (let x = 0; x < this.NumberOfCols; x++) {
       for (let y = 0; y < this.NumberOfRows; y++) {
         const key = this.toKey(x, y);
-        this.researchField[key] = x * y; // Initialwert für alle Hexagone
+        this.researchField[key] = new Aer(); // Initialwert für alle Hexagone
         this.DicChanged.emit(key);
       }
     }
@@ -38,13 +40,12 @@ export class ResearchFieldService {
     throw new Error(`Invalid key format: ${key}`);
   }
 
-  getHexagonValue(x: number, y: number): number {
+  getHexagonValue(x: number, y: number): Aspect | null {
     const key = this.toKey(x, y);
-    const value = this.researchField[key];
-    return value === undefined ? -1 : value;
+    return this.researchField[key];
   }
 
-  setHexagonValue(x: number, y: number, value: number): void {
+  setHexagonValue(x: number, y: number, value: Aspect | null): void {
     const key = this.toKey(x, y);
     this.researchField[key] = value;
     this.DicChanged.emit(key);

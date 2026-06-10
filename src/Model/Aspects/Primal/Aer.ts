@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Lux } from "../Level1/Lux";
 import { Motus } from "../Level1/Motus";
 import { Tempestas } from "../Level1/Tempestas";
@@ -13,10 +14,10 @@ export class Aer extends Aspect {
             super(EnLevel.Primal, path_img, []);
         } else {
             super(EnLevel.Primal, path_img, [
-                new Lux(false), 
-                new Motus(false),
-                new Tempestas(false),
-                new Vacuos(false)
+                new Lux(true), 
+                new Motus(true),
+                new Tempestas(true),
+                new Vacuos(true)
             ]);
         }
     }

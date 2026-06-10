@@ -1,4 +1,4 @@
-enum EnLevel {
+export enum EnLevel {
     Primal = "Primal",
     Tier1 = "Tier 1",
     Tier2 = "Tier 2",

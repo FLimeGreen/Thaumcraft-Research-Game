@@ -1,3 +1,5 @@
+import { EnLevel } from "./Enum_Level";
+
 export abstract class Aspect{
 
     public readonly Level : EnLevel;

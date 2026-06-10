@@ -1,4 +1,5 @@
 import { Aspect } from "../Aspect";
+import { EnLevel } from "../Enum_Level";
 import { Aer } from "../Primal/Aer";
 import { Ignis } from "../Primal/Ignis";
 
@@ -10,7 +11,10 @@ export class Lux extends Aspect {
         if (ver_emthy) {
             super(EnLevel.Primal, path_img, []);
         } else {
-            super(EnLevel.Primal, path_img, [new Ignis(false), new Aer(false)]);
+            super(EnLevel.Primal, path_img, [
+                new Ignis(true), 
+                new Aer(true)
+            ]);
         }
     }
 }
