@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, signal, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
 
 @Component({
   selector: 'app-hex-field',
   templateUrl: './hex-field.html',
-  styleUrls: ['./hex-field.css'],
+  styleUrls: ['./hex-field.css']
 })
 export class HexField implements OnInit, OnDestroy {
   @Input() row: number = 0;
@@ -14,7 +14,9 @@ export class HexField implements OnInit, OnDestroy {
   public Anzeige = signal("");
   private dicSub?: Subscription;
 
-  constructor(private researchFieldService: ResearchFieldService) {}
+  constructor(
+    private researchFieldService: ResearchFieldService,
+  ) {}
 
   ngOnInit(): void {
     // initialen Wert setzen
@@ -39,6 +41,6 @@ export class HexField implements OnInit, OnDestroy {
 
   private updateAnzeige(): void {
     const val = this.researchFieldService.getHexagonValue(this.col, this.row);
-    this.Anzeige.set(val ? val.constructor.name : "");
+    this.Anzeige.set(val ? val.IMG : "");
   }
 }

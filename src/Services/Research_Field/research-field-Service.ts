@@ -11,8 +11,8 @@ interface HexDictionary {
 })
 export class ResearchFieldService {
 
-  public readonly NumberOfRows:number = 20;
-  public readonly NumberOfCols:number = 20;
+  public readonly NumberOfRows:number = 10;
+  public readonly NumberOfCols:number = 10;
 
   private researchField: HexDictionary = {};
 
