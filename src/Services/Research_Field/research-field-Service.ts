@@ -1,6 +1,11 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Aspect } from '../../Model/Aspects/Aspect';
 import { Aer } from '../../Model/Aspects/Primal/Aer';
+import { Aqua } from '../../Model/Aspects/Primal/Aqua';
+import { Ignis } from '../../Model/Aspects/Primal/Ignis';
+import { Ordo } from '../../Model/Aspects/Primal/Ordo';
+import { Perditio } from '../../Model/Aspects/Primal/Perditio';
+import { Terra } from '../../Model/Aspects/Primal/Terra';
 
 interface HexDictionary {
   [key: string]: Aspect | null;
@@ -15,6 +20,17 @@ export class ResearchFieldService {
   public readonly NumberOfCols:number = 27;
 
   private researchField: HexDictionary = {};
+
+  public readonly ListOfAspectsInventory: Aspect[] = [
+    new Aer(true), 
+    new Aqua(true), 
+    new Ignis(true), 
+    new Ordo(true), 
+    new Perditio(true), 
+    new Terra(true)
+  ];
+
+  public SelectedAspectInventory: Aspect | null = null;
 
   @Output() DicChanged = new EventEmitter<string>();
 

@@ -1,1 +1,14 @@
-<p>research-inventory-field works!</p>
+<table class="">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Aspect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of inventory; let i = index" (click)="onInventoryClick(obj)">
+        <th scope="row">{{ i + 1 }}</th>
+        <td><img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image"></td>
+    </tr>
+</tbody>
+</table>

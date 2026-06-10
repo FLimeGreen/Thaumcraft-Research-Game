@@ -36,6 +36,7 @@ export class HexField implements OnInit, OnDestroy {
   }
 
   onHexClick(): void {
+    this.researchFieldService.setHexagonValue(this.col, this.row, this.researchFieldService.SelectedAspectInventory);
     this.updateAnzeige();
   }
 
