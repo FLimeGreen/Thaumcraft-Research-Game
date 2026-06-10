@@ -1,0 +1,16 @@
+import { Aspect } from "../Aspect";
+import { Ignis } from "../Primal/Ignis";
+import { Perditio } from "../Primal/Perditio";
+
+export class Gelum extends Aspect {
+    constructor(ver_emthy:boolean = false){
+
+        const path_img: string = "/assets/svgs/gelum.svg";
+        
+        if (ver_emthy) {
+            super(EnLevel.Primal, path_img, []);
+        } else {
+            super(EnLevel.Primal, path_img, [new Ignis(false), new Perditio(false)]);
+        }
+    }
+}
