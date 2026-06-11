@@ -24,4 +24,8 @@ export class ResearchInventoryField {
   public onInventoryClick(aspect: Aspect): void {
     this.researchFieldService.SelectedAspectInventory = aspect;
   }
+
+  public onClearClick(): void {
+    this.researchFieldService.SelectedAspectInventory = null;
+  }
 }

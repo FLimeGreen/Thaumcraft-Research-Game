@@ -8,12 +8,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let obj of inventoryPrimal; let i = index" (click)="onInventoryClick(obj)">
-        <th class="border border-gray-300" scope="row">{{ i + 1 }}</th>
-        <td class="border border-gray-300">
-          <img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image">
-        </td>
-      </tr>
+        <tr>
+            <th class="border border-gray-300" scope="row">0</th>
+            <td class="border border-gray-300 p-2">
+                <button class="border border-gray-300" (click)="onClearClick()">Entfernen</button>
+            </td>
+        </tr>
+        <tr *ngFor="let obj of inventoryPrimal; let i = index" (click)="onInventoryClick(obj)">
+            <th class="border border-gray-300" scope="row">{{ i + 1 }}</th>
+            <td class="border border-gray-300">
+            <img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image">
+            </td>
+        </tr>
     </tbody>
   </table>
 
