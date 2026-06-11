@@ -1,14 +1,15 @@
-<table class="">
+<table class="border-collapse border border-gray-300">
     <thead>
         <tr>
-        <th scope="col">#</th>
-        <th scope="col">Aspect</th>
+        <th class="border border-gray-300 px-4 py-2 text-left">#</th>
+        <th class="border border-gray-300 px-4 py-2 text-left">Aspect</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let obj of inventory; let i = index" (click)="onInventoryClick(obj)">
-        <th scope="row">{{ i + 1 }}</th>
-        <td><img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image"></td>
+    <tr *ngFor="let obj of inventory; let i = index" (click)="onInventoryClick(obj)">
+      <th class="border border-gray-300" scope="row">{{ i + 1 }}</th>
+      <td class="border border-gray-300" scope="row">
+        <img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image">
+      </td>
     </tr>
 </tbody>
-</table>
