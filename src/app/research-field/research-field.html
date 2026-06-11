@@ -14,10 +14,10 @@
       *ngFor="let hex of hexagons"
       class="absolute flex items-center justify-center pointer-events-auto"
       [ngStyle]="getHexagonStyle(hex)"
+      (click)="onHexClick(hex)"
     >
-      <div class="flex items-center justify-center w-full h-full rounded p-2 text-center text-xs text-[#333]">
-        <app-hex-field [row]="hex.row" [col]="hex.col"></app-hex-field>
-      </div>
+      <app-hex-field [row]="hex.row" [col]="hex.col" [triggerClick]="clickedHex"></app-hex-field>
+
     </div>
   </div>
 </div>

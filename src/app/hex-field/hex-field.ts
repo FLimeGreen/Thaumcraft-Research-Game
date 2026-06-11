@@ -34,6 +34,12 @@ export class HexField implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.dicSub?.unsubscribe();
   }
+  
+  @Input() set triggerClick(val: {x: number, y: number} | null) {
+    if (val && val.x === this.col && val.y === this.row) {
+      this.onHexClick();
+    }
+  }
 
   onHexClick(): void {
     this.researchFieldService.setHexagonValue(this.col, this.row, this.researchFieldService.SelectedAspectInventory);

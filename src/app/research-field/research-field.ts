@@ -177,4 +177,11 @@ export class ResearchField implements OnInit, AfterViewInit, OnDestroy {
       height: (hex.size * Math.sqrt(3) / 2) + 'px',
     };
   }
+
+  clickedHex: {x: number, y: number} | null = null;
+
+  onHexClick(hex: Hexagon): void {
+    console.log(`Hexagon clicked: Row ${hex.row}, Col ${hex.col}`);
+    this.clickedHex = { x: hex.col, y: hex.row };
+  }
 }
