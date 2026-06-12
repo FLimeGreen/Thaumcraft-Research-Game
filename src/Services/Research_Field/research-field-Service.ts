@@ -13,6 +13,10 @@ interface HexDictionary {
     [key: string]: Aspect | null;
 }
 
+interface HexDictionaryLock {
+    [key: string]: boolean;
+}
+
 @Injectable({
     providedIn: 'root',
 })
@@ -22,6 +26,7 @@ export class ResearchFieldService {
     public readonly NumberOfCols:number = 27;
 
     private researchField: HexDictionary = {};
+    private researchFieldLock: HexDictionaryLock = {};
 
     public readonly ListOfAspectsInventory: Aspect[] = [
         new Aer(true), 
@@ -52,6 +57,11 @@ export class ResearchFieldService {
         throw new Error(`Invalid key format: ${key}`);
     }
 
+    getHexagonLock(x: number, y: number): boolean {
+        const key = this.toKey(x, y);
+        return this.researchFieldLock[key];
+    }
+
     getHexagonValue(x: number, y: number): Aspect | null {
         const key = this.toKey(x, y);
         return this.researchField[key];
@@ -69,6 +79,7 @@ export class ResearchFieldService {
             for (let y = 0; y < this.NumberOfRows; y++) {
                 const key = this.toKey(x, y);
                 this.researchField[key] = null;
+                this.researchFieldLock[key] = false;
                 this.DicChanged.emit(key);
             }
         }
@@ -85,6 +96,7 @@ export class ResearchFieldService {
             // Zufälligen Aspekt
             const aspectClass = ListofallAspects.ListOfAllAspects[randomNumber(ListofallAspects.ListOfAllAspects.length)];
             this.researchField[randomKey] = aspectClass;
+            this.researchFieldLock[randomKey] = true;
             this.DicChanged.emit(randomKey);
         }
     }
