@@ -80,6 +80,9 @@ export class ResearchFieldService {
         }
         if (Object.keys(AspektsFound).length === 0) { return false; }
 
+        console.log("Aspects Found: More than One");
+        console.log(AspektsFound);
+
         // Union-Find Setup
         const parent: { [key: string]: string } = {};
         const find = (k: string): string => {
@@ -109,23 +112,23 @@ export class ResearchFieldService {
             const [x, y] = this.toTuple(key);
             const aspect = AspektsFound[key]!;
 
+            console.log(`Checking neighbors for ${key} (${aspect.constructor.name})`);
             for (const neighborKey of getNeighborKeys(x, y)) {
                 const neighbor = AspektsFound[neighborKey];
                 if (!neighbor) continue;
 
-                // Prüfen ob die beiden Aspekte eine Verbindung eingehen können
-                const canConnect =
-                    aspect.Verbindungen.some(v => v.constructor.name === neighbor.constructor.name) ||
-                    neighbor.Verbindungen.some(v => v.constructor.name === aspect.constructor.name);
-
+                console.log(`Checking connection between ${key} and ${neighborKey}`);
+                
                 if (aspect.canConnectTo(neighbor)) {
                     union(key, neighborKey);
+                    console.log(`Connected ${key} and ${neighborKey}`);
                 }
           }
         }
 
         // Alle in einer Gruppe? → Forschung komplett
         const roots = new Set(Object.keys(AspektsFound).map(find));
+        console.log("Unique Groups Found:", roots.size);
         return roots.size === 1;
     }
 }

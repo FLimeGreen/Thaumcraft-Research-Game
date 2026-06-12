@@ -14,7 +14,16 @@ export abstract class Aspect{
 
     // Aspect.ts
     canConnectTo(other: Aspect): boolean {
-        return  this.Verbindungen.some(v => other instanceof (v as any).constructor) ||
-                other.Verbindungen.some(v => this instanceof (v as any).constructor);
+        const otherName = other.constructor.name;
+        const thisName = this.constructor.name;
+
+        console.log(`Checking connection from ${thisName} to ${otherName}`);
+
+        const thisCanConnect = this.Verbindungen.some(v => v.constructor.name === otherName);
+        const otherCanConnect = other.Verbindungen.some(v => v.constructor.name === thisName);
+
+        console.log(`${thisName} → ${otherName}: ${thisCanConnect} | ${otherName} → ${thisName}: ${otherCanConnect}`);
+
+        return thisCanConnect || otherCanConnect;
     }
 }
