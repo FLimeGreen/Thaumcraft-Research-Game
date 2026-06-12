@@ -13,6 +13,8 @@ export class ResearchFieldControllline {
 
     public AnzeigeCompleteResearch = signal("Not Checked");
 
+    public AnzeigeCompleteResearchBool = signal(false);
+
     constructor(private researchFieldService: ResearchFieldService) {
 
     }
@@ -22,9 +24,13 @@ export class ResearchFieldControllline {
         const valid = this.researchFieldService.checkifResearchIsComplete();
         console.log(valid);
         this.AnzeigeCompleteResearch.set(valid ? "Research Complete" : "Research Incomplete");
+        this.AnzeigeCompleteResearchBool.set(valid);
     }
 
-    Test(): void {
-        console.log("Button funktioniert");
+    onNewResearchClick(): void {
+        console.log("New Research Start");
+        this.researchFieldService.generateNewResearch();
+        this.AnzeigeCompleteResearch.set("Not Checked");
+        this.AnzeigeCompleteResearchBool.set(false);
     }
 }

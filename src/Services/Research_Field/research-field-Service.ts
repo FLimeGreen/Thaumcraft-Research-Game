@@ -6,6 +6,8 @@ import { Ignis } from '../../Model/Aspects/Primal/Ignis';
 import { Ordo } from '../../Model/Aspects/Primal/Ordo';
 import { Perditio } from '../../Model/Aspects/Primal/Perditio';
 import { Terra } from '../../Model/Aspects/Primal/Terra';
+import { randomNumber } from '../../Model/randomNumber';
+import { ListofallAspects } from '../../Model/Aspects/ListofallAspects';
 
 interface HexDictionary {
     [key: string]: Aspect | null;
@@ -35,13 +37,7 @@ export class ResearchFieldService {
     @Output() DicChanged = new EventEmitter<string>();
 
     constructor() {
-        for (let x = 0; x < this.NumberOfCols; x++) {
-            for (let y = 0; y < this.NumberOfRows; y++) {
-                const key = this.toKey(x, y);
-                this.researchField[key] = null; // Initialwert für alle Hexagone
-                this.DicChanged.emit(key);
-            }
-        }
+        this.generateNewResearch();
     }
 
     toKey(x: number, y: number): string {
@@ -67,6 +63,31 @@ export class ResearchFieldService {
         this.DicChanged.emit(key);
     }
 
+    generateNewResearch(): void {
+        // Beispiel: Alle Hexagone zurücksetzen
+        for (let x = 0; x < this.NumberOfCols; x++) {
+            for (let y = 0; y < this.NumberOfRows; y++) {
+                const key = this.toKey(x, y);
+                this.researchField[key] = null;
+                this.DicChanged.emit(key);
+            }
+        }
+
+        const randomFixed = randomNumber(2, 5); // 1-3 Aspekte
+        const keys = Object.keys(this.researchField); // alle verfügbaren Felder
+  
+        for (let i = 0; i < randomFixed; i++) {
+            // Zufälliges leeres Feld
+            const emptyKeys = keys.filter(k => !this.researchField[k]);
+            if (emptyKeys.length === 0) break;
+            const randomKey = emptyKeys[randomNumber(emptyKeys.length)];
+
+            // Zufälligen Aspekt
+            const aspectClass = ListofallAspects.ListOfAllAspects[randomNumber(ListofallAspects.ListOfAllAspects.length)];
+            this.researchField[randomKey] = aspectClass;
+            this.DicChanged.emit(randomKey);
+        }
+    }
 
     checkifResearchIsComplete(): boolean {
 
@@ -118,7 +139,7 @@ export class ResearchFieldService {
                 if (!neighbor) continue;
 
                 console.log(`Checking connection between ${key} and ${neighborKey}`);
-                
+
                 if (aspect.canConnectTo(neighbor)) {
                     union(key, neighborKey);
                     console.log(`Connected ${key} and ${neighborKey}`);

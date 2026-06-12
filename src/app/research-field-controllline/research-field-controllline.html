@@ -1,5 +1,18 @@
 <div class="flex gap-4">
     <p>{{ AnzeigeCompleteResearch() }}</p>
     <button class="border border-gray-300" (click)="onCheckClick()">Check Research</button>
-    <button (click)="Test()">Test</button> 
+    <button 
+        class="border border-gray-300" 
+        (click)="onNewResearchClick()"
+        [class.bg-green-500]="AnzeigeCompleteResearchBool()"
+        [class.text-white]="AnzeigeCompleteResearchBool()"
+        [class.border-green-500]="AnzeigeCompleteResearchBool()"
+        [class.bg-gray-200]="!AnzeigeCompleteResearchBool()"
+        [class.text-gray-400]="!AnzeigeCompleteResearchBool()"
+        [class.border-gray-300]="!AnzeigeCompleteResearchBool()"
+        [class.cursor-not-allowed]="!AnzeigeCompleteResearchBool()"
+        [disabled]="!AnzeigeCompleteResearchBool()"
+    >
+        Get New Research
+    </button>
 </div>
