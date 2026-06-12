@@ -38,7 +38,7 @@ export class ResearchFieldService {
     for (let x = 0; x < this.NumberOfCols; x++) {
       for (let y = 0; y < this.NumberOfRows; y++) {
         const key = this.toKey(x, y);
-        this.researchField[key] = new Aer(); // Initialwert für alle Hexagone
+        this.researchField[key] = null; // Initialwert für alle Hexagone
         this.DicChanged.emit(key);
       }
     }
