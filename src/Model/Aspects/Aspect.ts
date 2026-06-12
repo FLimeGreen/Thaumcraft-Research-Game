@@ -11,4 +11,10 @@ export abstract class Aspect{
         this.IMG = img;
         this.Verbindungen = verb;
     }
+
+    // Aspect.ts
+    canConnectTo(other: Aspect): boolean {
+        return  this.Verbindungen.some(v => other instanceof (v as any).constructor) ||
+                other.Verbindungen.some(v => this instanceof (v as any).constructor);
+    }
 }
