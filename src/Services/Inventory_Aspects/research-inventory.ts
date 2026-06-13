@@ -22,26 +22,27 @@ import { Venenum } from '../../Model/Aspects/Level1/Venenum';
 })
 export class ResearchInventory {
 
-  public readonly ListOfAspectsInventoryPrimal: Aspect[] = [
-    new Aer(), 
-    new Aqua(), 
-    new Ignis(), 
-    new Ordo(), 
-    new Perditio(), 
-    new Terra()
+  public readonly ListOfAspectsInventoryPrimal: { aspect: Aspect, count: number }[] = [
+    { aspect: new Aer(), count: 10 },
+    { aspect: new Aqua(), count: 10 },
+    { aspect: new Ignis(), count: 10 },
+    { aspect: new Ordo(), count: 10 },
+    { aspect: new Perditio(), count: 10 },
+    { aspect: new Terra(), count: 10 }
   ];
 
-  public readonly ListOfAspectsInventoryLevel1: Aspect[] = [
-    new Gelum(), 
-    new Lux(), 
-    new Motus(), 
-    new Permutatio(), 
-    new Potentia(), 
-    new Tempestas(),
-    new Vacuos(),
-    new Venenum(),
-    new Victus(),
-    new Vitreus()
+  public readonly ListOfAspectsInventoryLevel1: { aspect: Aspect, count: number }[] = [
+    { aspect: new Gelum(), count: 10 },
+    { aspect: new Lux(), count: 10 },
+    { aspect: new Motus(), count: 10 },
+    { aspect: new Permutatio(), count: 10 },
+    { aspect: new Potentia(), count: 10 },
+    { aspect: new Tempestas(), count: 10 },
+    { aspect: new Vacuos(), count: 10 },
+    { aspect: new Venenum(), count: 10 },
+    { aspect: new Victus(), count: 10 },
+    { aspect: new Vitreus(), count: 10 },
+
   ];
 
 }

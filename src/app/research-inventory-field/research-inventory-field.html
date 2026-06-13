@@ -3,21 +3,21 @@
   <table class="border-collapse border border-gray-300">
     <thead>
       <tr>
-        <th class="border border-gray-300 px-4 py-2 text-left">#</th>
+        <th class="border border-gray-300 px-4 py-2 text-left">Amount</th>
         <th class="border border-gray-300 px-4 py-2 text-left">Aspect</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-            <th class="border border-gray-300" scope="row">0</th>
+            <th class="border border-gray-300">-</th>
             <td class="border border-gray-300 p-2">
                 <button class="border border-gray-300" (click)="onClearClick()">Entfernen</button>
             </td>
         </tr>
-        <tr *ngFor="let obj of inventoryPrimal; let i = index" (click)="onInventoryClick(obj)">
-            <th class="border border-gray-300" scope="row">{{ i + 1 }}</th>
+        <tr *ngFor="let obj of inventoryPrimal; let i = index" (click)="onInventoryClick(obj.aspect)">
+            <th class="border border-gray-300">{{ obj.count }}</th>
             <td class="border border-gray-300">
-            <img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image">
+            <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">
             </td>
         </tr>
     </tbody>
@@ -31,10 +31,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let obj of inventoryLevel1; let i = index" (click)="onInventoryClick(obj)">
-        <th class="border border-gray-300" scope="row">{{ i + 1 }}</th>
+      <tr *ngFor="let obj of inventoryLevel1; let i = index" (click)="onInventoryClick(obj.aspect)">
+        <th class="border border-gray-300"> {{ obj.count }}</th>
         <td class="border border-gray-300">
-          <img class="w-16 h-16" [src]="obj.IMG" alt="Hex Field Image">
+          <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">
         </td>
       </tr>
     </tbody>

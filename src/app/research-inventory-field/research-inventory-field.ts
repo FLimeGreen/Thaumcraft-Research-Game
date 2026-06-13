@@ -13,8 +13,8 @@ import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inv
 })
 export class ResearchInventoryField {
 
-  public inventoryPrimal: Aspect[] = [];
-  public inventoryLevel1: Aspect[] = [];
+  public inventoryPrimal: { aspect: Aspect, count: number }[] = [];
+  public inventoryLevel1: { aspect: Aspect, count: number }[] = [];
 
   constructor(private researchFieldService: ResearchFieldService, private researchInventory: ResearchInventory) {
     this.inventoryPrimal = this.researchInventory.ListOfAspectsInventoryPrimal;
