@@ -52,6 +52,10 @@ export class HexField implements OnInit, OnDestroy {
     if (ToPlaceAspect !== null) {
       // Irgend ein Aspect
 
+      // Ist mehr als 0 Aspekt da?
+      const count = this.researchInventory.getCount(ToPlaceAspect);
+      if (count <= 0 || isNaN(count)) { return; }
+
       // Shaue ob ein Aspect da ist.
       if (AspectInPlace !== null) {
         // Ist da

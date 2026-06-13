@@ -56,6 +56,24 @@ export class ResearchInventory {
     this.InventoryLevel1Signal.set([...this.ListOfAspectsInventoryLevel1]);
   }
 
+  getCount(aspect: Aspect): number {
+    const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
+      e => e.aspect.constructor.name === aspect.constructor.name
+    );
+    if (entryinPrimal) {
+      return entryinPrimal.count;
+    }
+
+    const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
+      e => e.aspect.constructor.name === aspect.constructor.name
+    );
+    if (entryinLevel1) {
+      return entryinLevel1.count;
+    }
+
+    return NaN;
+  }
+
   addInventoryCount(aspect: Aspect) {
     const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
       e => e.aspect.constructor.name === aspect.constructor.name
