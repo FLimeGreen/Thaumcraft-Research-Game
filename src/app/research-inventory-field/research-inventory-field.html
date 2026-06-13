@@ -14,7 +14,7 @@
                 <button class="border border-gray-300" (click)="onClearClick()">Entfernen</button>
             </td>
         </tr>
-        <tr *ngFor="let obj of inventoryPrimal; let i = index" (click)="onInventoryClick(obj.aspect)">
+        <tr *ngFor="let obj of inventoryPrimal(); let i = index" (click)="onInventoryClick(obj.aspect)">
             <th class="border border-gray-300">{{ obj.count }}</th>
             <td class="border border-gray-300">
             <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">
@@ -31,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let obj of inventoryLevel1; let i = index" (click)="onInventoryClick(obj.aspect)">
+      <tr *ngFor="let obj of inventoryLevel1(); let i = index" (click)="onInventoryClick(obj.aspect)">
         <th class="border border-gray-300"> {{ obj.count }}</th>
         <td class="border border-gray-300">
           <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Aspect } from '../../Model/Aspects/Aspect';
 import { Aer } from '../../Model/Aspects/Primal/Aer';
 import { Aqua } from '../../Model/Aspects/Primal/Aqua';
@@ -31,6 +31,9 @@ export class ResearchInventory {
     { aspect: new Terra(), count: 10 }
   ];
 
+  public InventoryPrimalSignal = signal(this.ListOfAspectsInventoryPrimal);
+
+
   public readonly ListOfAspectsInventoryLevel1: { aspect: Aspect, count: number }[] = [
     { aspect: new Gelum(), count: 10 },
     { aspect: new Lux(), count: 10 },
@@ -44,5 +47,50 @@ export class ResearchInventory {
     { aspect: new Vitreus(), count: 10 },
 
   ];
+
+  public InventoryLevel1Signal = signal(this.ListOfAspectsInventoryLevel1);
+
+
+  changed() {
+    this.InventoryPrimalSignal.set([...this.ListOfAspectsInventoryPrimal]);
+    this.InventoryLevel1Signal.set([...this.ListOfAspectsInventoryLevel1]);
+  }
+
+  addInventoryCount(aspect: Aspect) {
+    const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
+      e => e.aspect.constructor.name === aspect.constructor.name
+    );
+    if (entryinPrimal) {
+      entryinPrimal.count++;
+    }
+
+    const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
+      e => e.aspect.constructor.name === aspect.constructor.name
+    );
+    if (entryinLevel1) {
+      entryinLevel1.count++;
+    }
+
+    this.changed();
+  }
+
+  subInventoryCount(aspect: Aspect) {
+    const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
+      e => e.aspect.constructor.name === aspect.constructor.name
+    );
+    if (entryinPrimal) {
+      entryinPrimal.count--;
+    }
+
+    const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
+      e => e.aspect.constructor.name === aspect.constructor.name
+    );
+    if (entryinLevel1) {
+      entryinLevel1.count--;
+    }
+
+    this.changed();
+  }
+
 
 }

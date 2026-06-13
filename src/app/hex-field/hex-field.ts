@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, signal, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
+import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inventory';
 
 @Component({
   selector: 'app-hex-field',
@@ -16,7 +17,8 @@ export class HexField implements OnInit, OnDestroy {
 
   constructor(
     private researchFieldService: ResearchFieldService,
-  ) {}
+    private researchInventory: ResearchInventory
+  ) { }
 
   ngOnInit(): void {
     // initialen Wert setzen
@@ -34,8 +36,8 @@ export class HexField implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.dicSub?.unsubscribe();
   }
-  
-  @Input() set triggerClick(val: {x: number, y: number} | null) {
+
+  @Input() set triggerClick(val: { x: number, y: number } | null) {
     if (val && val.x === this.col && val.y === this.row) {
       this.onHexClick();
     }
@@ -43,8 +45,34 @@ export class HexField implements OnInit, OnDestroy {
 
   onHexClick(): void {
     if (this.researchFieldService.getHexagonLock(this.col, this.row)) { return; }
-    
-    this.researchFieldService.setHexagonValue(this.col, this.row, this.researchFieldService.SelectedAspectInventory);
+    // Check if Delete or Place
+    const ToPlaceAspect = this.researchFieldService.SelectedAspectInventory;
+    const AspectInPlace = this.researchFieldService.getHexagonValue(this.col, this.row);
+
+    if (ToPlaceAspect !== null) {
+      // Irgend ein Aspect
+
+      // Shaue ob ein Aspect da ist.
+      if (AspectInPlace !== null) {
+        // Ist da
+        // Füge altes dem Inventar hinzu.
+        this.researchInventory.addInventoryCount(AspectInPlace);
+      }
+
+      // Ersetze den Aspect.
+      this.researchInventory.subInventoryCount(ToPlaceAspect);
+      this.researchFieldService.setHexagonValue(this.col, this.row, ToPlaceAspect);
+    }
+    else {
+      // Löschen eines Aspectes
+
+      // Inventar add AspectInPlace +1
+      if (AspectInPlace !== null) {
+        this.researchInventory.addInventoryCount(AspectInPlace);
+      }
+      this.researchFieldService.setHexagonValue(this.col, this.row, ToPlaceAspect);
+    }
+
     this.updateAnzeige();
   }
 

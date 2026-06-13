@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Aspect } from '../../Model/Aspects/Aspect';
 import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
@@ -12,14 +12,11 @@ import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inv
   styleUrl: './research-inventory-field.css',
 })
 export class ResearchInventoryField {
+  private researchInventory = inject(ResearchInventory);
+  public inventoryPrimal = this.researchInventory.InventoryPrimalSignal;
+  public inventoryLevel1 = this.researchInventory.InventoryLevel1Signal;
 
-  public inventoryPrimal: { aspect: Aspect, count: number }[] = [];
-  public inventoryLevel1: { aspect: Aspect, count: number }[] = [];
-
-  constructor(private researchFieldService: ResearchFieldService, private researchInventory: ResearchInventory) {
-    this.inventoryPrimal = this.researchInventory.ListOfAspectsInventoryPrimal;
-    this.inventoryLevel1 = this.researchInventory.ListOfAspectsInventoryLevel1;
-  }
+  constructor(private researchFieldService: ResearchFieldService) { }
 
   public onInventoryClick(aspect: Aspect): void {
     this.researchFieldService.SelectedAspectInventory = aspect;
