@@ -36,7 +36,7 @@ export class ResearchFieldControllline {
   onNewResearchClick(): void {
     console.log("New Research Start");
     this.researchFieldService.generateNewResearch();
-    this.researchInventory.addGold(25);
+    this.researchInventory.addGold(25 * this.researchFieldService.getHecagonLockCount());
     this.AnzeigeCompleteResearch.set("Not Checked");
     this.AnzeigeCompleteResearchBool.set(false);
   }
