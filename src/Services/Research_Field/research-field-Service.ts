@@ -79,7 +79,7 @@ export class ResearchFieldService {
       }
     }
 
-    const randomFixed = randomNumber(2, 5); // 1-3 Aspekte
+    const randomFixed = randomNumber(2, 5); // 2-4 Aspekte
     const keys = Object.keys(this.researchField); // alle verfügbaren Felder
 
     for (let i = 0; i < randomFixed; i++) {
