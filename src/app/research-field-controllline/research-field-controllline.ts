@@ -2,6 +2,8 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
 import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inventory';
+import { CheatSheet } from '../cheat-sheet/cheat-sheet';
+import { CheatSheetService } from '../../Services/CheatSheet/cheat-sheet-service';
 
 @Component({
   selector: 'app-research-field-controllline',
@@ -19,7 +21,8 @@ export class ResearchFieldControllline {
   public Gold = signal(0);
 
   constructor(private researchFieldService: ResearchFieldService,
-    private researchInventory: ResearchInventory
+    private researchInventory: ResearchInventory,
+    private CheatSheet: CheatSheetService
   ) {
     this.Gold = this.researchInventory.GoldSignal;
   }
@@ -39,5 +42,9 @@ export class ResearchFieldControllline {
     this.researchInventory.addGold(25 * this.researchFieldService.getHecagonLockCount());
     this.AnzeigeCompleteResearch.set("Not Checked");
     this.AnzeigeCompleteResearchBool.set(false);
+  }
+
+  onCheatSheetClick() {
+    this.CheatSheet.onChange();
   }
 }
