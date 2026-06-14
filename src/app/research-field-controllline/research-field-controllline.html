@@ -1,15 +1,23 @@
-<div class="flex gap-4">
-    <p>{{ AnzeigeCompleteResearch() }}</p>
-    <button class="border border-gray-300" (click)="onCheckClick()">Check Research</button>
-    <button 
-        class="border border-gray-300" 
+<div class="gap-4">
+
+  <p>Gold: {{ Gold() }}</p>
+  <br>
+
+  <p>Research Status:</p>
+  <p>{{ AnzeigeCompleteResearch() }}</p>
+  <br>
+
+  <button class="border border-gray-900 p-2" (click)="onCheckClick()">Check Research</button>
+
+    <button
+        class="border border-gray-300 p-2 mt-1"
         (click)="onNewResearchClick()"
         [class.bg-green-500]="AnzeigeCompleteResearchBool()"
         [class.text-white]="AnzeigeCompleteResearchBool()"
         [class.border-green-500]="AnzeigeCompleteResearchBool()"
-        [class.bg-gray-200]="!AnzeigeCompleteResearchBool()"
+        [class.bg-gray-600]="!AnzeigeCompleteResearchBool()"
         [class.text-gray-400]="!AnzeigeCompleteResearchBool()"
-        [class.border-gray-300]="!AnzeigeCompleteResearchBool()"
+        [class.border-gray-900]="!AnzeigeCompleteResearchBool()"
         [class.cursor-not-allowed]="!AnzeigeCompleteResearchBool()"
         [disabled]="!AnzeigeCompleteResearchBool()"
     >

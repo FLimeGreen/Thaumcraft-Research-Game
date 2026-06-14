@@ -111,4 +111,13 @@ export class ResearchInventory {
   }
 
 
+  private Gold: number = 0;
+
+  public GoldSignal = signal(this.Gold);
+
+  addGold(amount: number) {
+    this.Gold = this.Gold + amount;
+    this.GoldSignal.set(this.Gold);
+  }
+
 }
