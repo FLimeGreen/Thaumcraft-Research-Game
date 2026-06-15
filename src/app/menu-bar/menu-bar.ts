@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-bar',
@@ -6,4 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './menu-bar.html',
   styleUrl: './menu-bar.css',
 })
-export class MenuBar {}
+export class MenuBar {
+
+  private router: Router;
+
+  constructor(router: Router) {
+    this.router = router;
+  }
+
+  onResearchClick() {
+    this.router.navigate(["/research"]);
+  }
+
+  onBasarClick() {
+    this.router.navigate(["/basar"]);
+  }
+}
