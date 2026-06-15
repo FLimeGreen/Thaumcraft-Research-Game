@@ -1,14 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ResearchField } from './research-field/research-field';
-import { ResearchInventoryField } from './research-inventory-field/research-inventory-field';
-import { ResearchFieldControllline } from './research-field-controllline/research-field-controllline';
-import { CheatSheet } from './cheat-sheet/cheat-sheet';
+import { ResearchView } from './Research/research-view/research-view';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ResearchField, ResearchInventoryField, ResearchFieldControllline, CheatSheet],
+  imports: [RouterOutlet, ResearchView],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })

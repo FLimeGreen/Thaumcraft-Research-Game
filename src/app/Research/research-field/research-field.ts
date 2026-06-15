@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild, ElementRef, OnInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
+import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
 import { HexField } from '../hex-field/hex-field';
 
 interface Hexagon {
@@ -31,7 +31,7 @@ export class ResearchField implements OnInit, AfterViewInit, OnDestroy {
   rows: number;
   cols: number;
 
-  
+
   constructor(
     private changeDetector: ChangeDetectorRef,
     private ngZone: NgZone,
@@ -178,7 +178,7 @@ export class ResearchField implements OnInit, AfterViewInit, OnDestroy {
     };
   }
 
-  clickedHex: {x: number, y: number} | null = null;
+  clickedHex: { x: number, y: number } | null = null;
 
   onHexClick(hex: Hexagon): void {
     console.log(`Hexagon clicked: Row ${hex.row}, Col ${hex.col}`);

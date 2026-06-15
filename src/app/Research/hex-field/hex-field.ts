@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, signal, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
-import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inventory';
+import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
+import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 
 @Component({
   selector: 'app-hex-field',

@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
-import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inventory';
+import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
+import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 import { CheatSheet } from '../cheat-sheet/cheat-sheet';
-import { CheatSheetService } from '../../Services/CheatSheet/cheat-sheet-service';
+import { CheatSheetService } from '../../../Services/CheatSheet/cheat-sheet-service';
 
 @Component({
   selector: 'app-research-field-controllline',

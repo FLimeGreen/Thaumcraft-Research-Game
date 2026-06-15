@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CheatSheetService } from '../../Services/CheatSheet/cheat-sheet-service';
+import { CheatSheetService } from '../../../Services/CheatSheet/cheat-sheet-service';
 
 @Component({
   selector: 'app-cheat-sheet',

@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Aspect } from '../../Model/Aspects/Aspect';
-import { ResearchFieldService } from '../../Services/Research_Field/research-field-Service';
-import { ResearchInventory } from '../../Services/Inventory_Aspects/research-inventory';
+import { Aspect } from '../../../Model/Aspects/Aspect';
+import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
+import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 
 @Component({
   selector: 'app-research-inventory-field',
