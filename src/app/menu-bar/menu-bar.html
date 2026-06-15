@@ -1,6 +1,19 @@
 <div class="w-full h-full bg-gray-400 border-b border-gray-300 flex p-4 gap-4 overflow-y-auto">
 
-  <button (click)="onResearchClick()">Research</button>
-  <button (click)="onBasarClick()">Basar</button>
+  <button
+    class="border border-gray-300 p-2"
+    [class.bg-gray-600]="activeTab() === 'research'"
+    (click)="onResearchClick()"
+  >
+    Research
+  </button>
+
+  <button
+    class="border border-gray-300 p-2"
+    [class.bg-gray-600]="activeTab() === 'basar'"
+    (click)="onBasarClick()"
+  >
+    Basar
+  </button>
 
 </div>

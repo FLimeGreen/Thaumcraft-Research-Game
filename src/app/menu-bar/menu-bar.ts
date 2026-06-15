@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,16 +10,20 @@ import { Router } from '@angular/router';
 export class MenuBar {
 
   private router: Router;
+  activeTab = signal<'research' | 'basar'>('research');
 
   constructor(router: Router) {
     this.router = router;
+    this.activeTab.set('research');
   }
 
   onResearchClick() {
     this.router.navigate(["/research"]);
+    this.activeTab.set('research');
   }
 
   onBasarClick() {
     this.router.navigate(["/basar"]);
+    this.activeTab.set('basar');
   }
 }
