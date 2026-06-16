@@ -1,8 +1,16 @@
-<!-- Box -->
-<div class="border border-gray-300 rounded p-4 bg-gray-600">
-  <ng-content>
-
-
-  </ng-content>
+<div class="flex flex-wrap gap-4">
+  <div
+    *ngFor="let item of ShopItems()"
+    class="border border-gray-300 rounded p-4 bg-gray-600 text-white"
+  >
+    <p class="text-center">{{ item.aspect.constructor.name }}</p>
+    <img
+      class="border border-gray-300 p-2 w-16 h-16"
+      [src]="item.aspect.IMG"
+      alt="Shop Item"
+    >
+    <p>Amount: {{ item.amount }}</p>
+    <p>Price: {{ item.preis }}</p>
+  </div>
 </div>
 
