@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
 import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 import { CheatSheetService } from '../../../Services/CheatSheet/cheat-sheet-service';
+import { BasarService } from '../../../Services/Basar_Service/basar-service';
 
 @Component({
   selector: 'app-research-field-controllline',
@@ -21,6 +22,7 @@ export class ResearchFieldControllline {
 
   constructor(private researchFieldService: ResearchFieldService,
     private researchInventory: ResearchInventory,
+    private basar: BasarService,
     private CheatSheet: CheatSheetService
   ) {
     this.Gold = this.researchInventory.GoldSignal;
@@ -45,6 +47,9 @@ export class ResearchFieldControllline {
     this.researchFieldService.generateNewResearch();
     this.AnzeigeCompleteResearch.set("Not Checked");
     this.AnzeigeCompleteResearchBool.set(false);
+
+    // New Basar
+    this.basar.GenerateBasarInventory();
   }
 
   onCheatSheetClick() {
