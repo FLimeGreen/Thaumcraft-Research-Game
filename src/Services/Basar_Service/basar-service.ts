@@ -11,6 +11,8 @@ export class BasarService {
 
   public _ShopItems = signal<{ aspect: Aspect, amount: number, preis: number, gekauft: boolean }[]>([]);
 
+  public SelectedItem: { aspect: Aspect, amount: number, preis: number, gekauft: boolean } | null = null;
+
   constructor() {
     this.GenerateBasarInventory();
   }
@@ -18,6 +20,7 @@ export class BasarService {
   public GenerateBasarInventory() {
 
     let _ShopItmes: { aspect: Aspect, amount: number, preis: number, gekauft: boolean }[] = [];
+    this.SelectedItem = null;
 
     for (let i = 0; i < 8; i++) {
 

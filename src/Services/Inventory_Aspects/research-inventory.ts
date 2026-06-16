@@ -74,37 +74,42 @@ export class ResearchInventory {
     return NaN;
   }
 
-  addInventoryCount(aspect: Aspect) {
+  addInventoryCount(aspect: Aspect, count: number = 1) {
     const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
       e => e.aspect.constructor.name === aspect.constructor.name
     );
     if (entryinPrimal) {
-      entryinPrimal.count++;
+      entryinPrimal.count += count;
+      console.log(aspect);
+      console.log(count);
     }
 
     const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
       e => e.aspect.constructor.name === aspect.constructor.name
     );
     if (entryinLevel1) {
-      entryinLevel1.count++;
+      entryinLevel1.count += count;
+      console.log(aspect);
+      console.log(count);
     }
 
+    console.log("Add Aspect");
     this.changed();
   }
 
-  subInventoryCount(aspect: Aspect) {
+  subInventoryCount(aspect: Aspect, count: number = 1) {
     const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
       e => e.aspect.constructor.name === aspect.constructor.name
     );
     if (entryinPrimal) {
-      entryinPrimal.count--;
+      entryinPrimal.count -= count;
     }
 
     const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
       e => e.aspect.constructor.name === aspect.constructor.name
     );
     if (entryinLevel1) {
-      entryinLevel1.count--;
+      entryinLevel1.count -= count;
     }
 
     this.changed();
@@ -118,6 +123,12 @@ export class ResearchInventory {
   addGold(amount: number) {
     this.Gold = this.Gold + amount;
     this.GoldSignal.set(this.Gold);
+  }
+
+  subGold(amount: number) {
+    this.Gold = this.Gold - amount;
+    this.GoldSignal.set(this.Gold);
+
   }
 
 }

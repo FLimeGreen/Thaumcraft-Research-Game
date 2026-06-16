@@ -13,8 +13,12 @@ export class BasarSingleItemDisplay {
 
   public ShopItems = signal<{ aspect: Aspect, amount: number, preis: number, gekauft: boolean }[]>([]);
 
-  constructor(basarservice: BasarService) {
-    this.ShopItems = basarservice._ShopItems;
+  constructor(public basarservice: BasarService) {
+    this.ShopItems = this.basarservice._ShopItems;
+  }
+
+  onItemClick(item: { aspect: Aspect, amount: number, preis: number, gekauft: boolean }) {
+    this.basarservice.SelectedItem = item;
   }
 
 }
