@@ -3,7 +3,9 @@
        [attr.width]="containerWidth" [attr.height]="containerHeight">
     <polygon
       *ngFor="let hex of hexagons"
-      class="fill-gray stroke-[#333] stroke-2 transition-all duration-300 cursor-pointer hover:fill-[#e8f4f8] hover:stroke-[#0066cc] hover:stroke-[3px]"
+      class="stroke-[#333] stroke-2"
+      [class.fill-gray-900]="researchFieldService.getHexagonLock(hex.col, hex.row)"
+
       [attr.points]="getHexagonPoints(hex)"
       [attr.data-id]="hex.id"
     />

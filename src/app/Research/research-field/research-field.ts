@@ -35,7 +35,7 @@ export class ResearchField implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private changeDetector: ChangeDetectorRef,
     private ngZone: NgZone,
-    private researchFieldService: ResearchFieldService
+    public researchFieldService: ResearchFieldService
   ) {
     this.rows = this.researchFieldService.NumberOfRows;
     this.cols = this.researchFieldService.NumberOfCols;
