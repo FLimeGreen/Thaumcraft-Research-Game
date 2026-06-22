@@ -6,19 +6,19 @@ import { Tempestas } from "../Level1/Tempestas";
 import { Vacuos } from "../Level1/Vacuos";
 
 export class Aer extends Aspect {
-    constructor(ver_emthy:boolean = false){
+  constructor(ver_emthy: boolean = false) {
 
-        const path_img :string = "/assets/svgs/Aer.svg";
-        
-        if (ver_emthy) {
-            super(EnLevel.Primal, path_img, []);
-        } else {
-            super(EnLevel.Primal, path_img, [
-                new Lux(true), 
-                new Motus(true),
-                new Tempestas(true),
-                new Vacuos(true)
-            ]);
-        }
+    const path_img: string = "/assets/svgs/Aer.svg";
+
+    if (ver_emthy) {
+      super(EnLevel.Primal, path_img, [], []);
+    } else {
+      super(EnLevel.Primal, path_img, [], [
+        new Lux(true),
+        new Motus(true),
+        new Tempestas(true),
+        new Vacuos(true)
+      ]);
     }
+  }
 }

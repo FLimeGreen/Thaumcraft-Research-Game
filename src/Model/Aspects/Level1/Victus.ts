@@ -4,17 +4,17 @@ import { Aqua } from "../Primal/Aqua";
 import { Terra } from "../Primal/Terra";
 
 export class Victus extends Aspect {
-    constructor(ver_emthy:boolean = false){
+  constructor(ver_emthy: boolean = false) {
 
-        const path_img: string = "/assets/svgs/Victus.svg";
-        
-        if (ver_emthy) {
-            super(EnLevel.Tier1, path_img, []);
-        } else {
-            super(EnLevel.Tier1, path_img, [
-                new Aqua(true),
-                new Terra(true)
-            ]);
-        }
+    const path_img: string = "/assets/svgs/Victus.svg";
+
+    if (ver_emthy) {
+      super(EnLevel.Tier1, path_img, [], []);
+    } else {
+      super(EnLevel.Tier1, path_img, [], [
+        new Aqua(true),
+        new Terra(true)
+      ]);
     }
+  }
 }

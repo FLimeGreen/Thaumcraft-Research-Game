@@ -6,19 +6,19 @@ import { Vacuos } from "../Level1/Vacuos";
 import { Venenum } from "../Level1/Venenum";
 
 export class Perditio extends Aspect {
-    constructor(ver_emthy:boolean = false){
+  constructor(ver_emthy: boolean = false) {
 
-        const path_img :string = "/assets/svgs/Perditio.svg";
-        
-        if (ver_emthy) {
-            super(EnLevel.Primal, path_img, []);
-        } else {
-            super(EnLevel.Primal, path_img, [
-                new Gelum(true),
-                new Permutatio(true),
-                new Vacuos(true),
-                new Venenum(true)
-            ]);
-        }
+    const path_img: string = "/assets/svgs/Perditio.svg";
+
+    if (ver_emthy) {
+      super(EnLevel.Primal, path_img, [], []);
+    } else {
+      super(EnLevel.Primal, path_img, [], [
+        new Gelum(true),
+        new Permutatio(true),
+        new Vacuos(true),
+        new Venenum(true)
+      ]);
     }
+  }
 }
