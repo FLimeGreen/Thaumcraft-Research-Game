@@ -16,28 +16,22 @@
 
       <app-research-inventory-field></app-research-inventory-field>
 
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 m-8">
 
         <!-- Box 1 -->
-        <div class="border border-gray-300 rounded p-4 bg-white">
-          <ng-content select="[left1]"></ng-content>
-        </div>
+        <app-fusion-item dis_typ='firstComponent'></app-fusion-item>
 
         <!-- Plus -->
         <div class="text-gray-500 text-2xl">+</div>
 
         <!-- Box 2 -->
-        <div class="border border-gray-300 rounded p-4 bg-white">
-          <ng-content select="[left2]"></ng-content>
-        </div>
+        <app-fusion-item dis_typ='secondComponent'></app-fusion-item>
 
         <!-- Pfeil -->
         <div class="text-gray-500 text-2xl">→</div>
 
         <!-- Box 3 -->
-        <div class="border border-gray-300 rounded p-4 bg-white">
-          <ng-content select="[right]"></ng-content>
-        </div>
+        <app-fusion-item dis_typ='ResultComponent'></app-fusion-item>
 
       </div>
     </ng-content>
