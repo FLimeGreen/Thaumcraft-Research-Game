@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, EventEmitter } from '@angular/core';
 import { Aspect } from '../../Model/Aspects/Aspect';
 import { Aer } from '../../Model/Aspects/Primal/Aer';
 import { Aqua } from '../../Model/Aspects/Primal/Aqua';
@@ -50,6 +50,8 @@ export class ResearchInventory {
 
   public InventoryLevel1Signal = signal(this.ListOfAspectsInventoryLevel1);
 
+
+  public inventorySelectionChanged = new EventEmitter<string>();
 
   changed() {
     this.InventoryPrimalSignal.set([...this.ListOfAspectsInventoryPrimal]);

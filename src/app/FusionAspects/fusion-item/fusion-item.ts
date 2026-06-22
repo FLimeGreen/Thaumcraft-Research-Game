@@ -1,6 +1,7 @@
 import { Component, Input, signal } from '@angular/core';
 import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 import { sign } from 'crypto';
+import { ResearchInventoryField } from '../../Research/research-inventory-field/research-inventory-field';
 
 @Component({
   selector: 'app-fusion-item',
@@ -17,6 +18,13 @@ export class FusionItem {
 
 
   constructor(private researchInventory: ResearchInventory) {
+    this.researchInventory.inventorySelectionChanged.subscribe((selection: string) => {
+      // Hier kannst du die internen Funktion aufrufen
+      console.log("Inventory Selection Changed", selection);
+      // Aufruf deiner Funktion
+      this.update_View();
+    });
+
     this.title.set("Nothing Selected");
   }
 
