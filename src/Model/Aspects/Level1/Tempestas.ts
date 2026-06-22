@@ -11,7 +11,10 @@ export class Tempestas extends Aspect {
     if (ver_emthy) {
       super(EnLevel.Tier1, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [], [
+      super(EnLevel.Tier1, path_img, [
+        new Aer(true),
+        new Aqua(true)
+      ], [
         new Aer(true),
         new Aqua(true)
       ]);

@@ -11,7 +11,10 @@ export class Gelum extends Aspect {
     if (ver_emthy) {
       super(EnLevel.Tier1, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [], [
+      super(EnLevel.Tier1, path_img, [
+        new Ignis(true),
+        new Perditio(true)
+      ], [
         new Ignis(true),
         new Perditio(true)
       ]);
