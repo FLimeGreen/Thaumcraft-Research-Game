@@ -4,6 +4,7 @@ import { sign } from 'crypto';
 import { ResearchInventoryField } from '../../Research/research-inventory-field/research-inventory-field';
 import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
 import { EnLevel } from '../../../Model/Aspects/Enum_Level';
+import { Aspect } from '../../../Model/Aspects/Aspect';
 
 @Component({
   selector: 'app-fusion-item',
@@ -48,16 +49,18 @@ export class FusionItem {
       return;
     }
 
+    const SAspect: Aspect = this.selected.SelectedAspectInventory;
+
     if (this.dis_typ === 'firstComponent') {
-      this.title.set("First");
+      this.title.set(SAspect.Bestandteile[0].constructor.name);
     }
 
     if (this.dis_typ === 'secondComponent') {
-      this.title.set("Second");
+      this.title.set(SAspect.Bestandteile[1].constructor.name);
     }
 
     if (this.dis_typ === 'ResultComponent') {
-      this.title.set("Result");
+      this.title.set(SAspect.constructor.name);
     }
 
   }
