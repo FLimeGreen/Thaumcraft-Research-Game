@@ -8,13 +8,31 @@
       </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr
+        [class.border-blue-500]="researchFieldService.SelectedAspectInventory === null"
+        [class.border-gray-300]="researchFieldService.SelectedAspectInventory !== null"
+
+        [class.border-3]="researchFieldService.SelectedAspectInventory === null"
+        [class.border]="researchFieldService.SelectedAspectInventory !== null"
+        >
             <th class="border border-gray-300">-</th>
             <td class="border border-gray-300 p-2">
-                <button class="border border-gray-300" (click)="onClearClick()">Entfernen</button>
+                <button class="border border-gray-300"
+                (click)="onClearClick()"
+                >
+                  Entfernen
+                </button>
             </td>
         </tr>
-        <tr *ngFor="let obj of inventoryPrimal(); let i = index" (click)="onInventoryClick(obj.aspect)">
+        <tr *ngFor="let obj of inventoryPrimal(); let i = index"
+        [class.border-blue-500]="researchFieldService.SelectedAspectInventory === obj.aspect"
+        [class.border-gray-300]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+
+        [class.border-3]="researchFieldService.SelectedAspectInventory === obj.aspect"
+        [class.border]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+
+        (click)="onInventoryClick(obj.aspect)"
+        >
             <th class="border border-gray-300">{{ obj.count }}</th>
             <td class="border border-gray-300">
             <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">
@@ -31,7 +49,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let obj of inventoryLevel1(); let i = index" (click)="onInventoryClick(obj.aspect)">
+      <tr *ngFor="let obj of inventoryLevel1(); let i = index"
+      [class.border-blue-500]="researchFieldService.SelectedAspectInventory === obj.aspect"
+      [class.border-gray-300]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+
+      [class.border-3]="researchFieldService.SelectedAspectInventory === obj.aspect"
+      [class.border]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+
+      (click)="onInventoryClick(obj.aspect)"
+      >
         <th class="border border-gray-300"> {{ obj.count }}</th>
         <td class="border border-gray-300">
           <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">

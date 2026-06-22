@@ -16,7 +16,7 @@ export class ResearchInventoryField {
   public inventoryPrimal = this.researchInventory.InventoryPrimalSignal;
   public inventoryLevel1 = this.researchInventory.InventoryLevel1Signal;
 
-  constructor(private researchFieldService: ResearchFieldService) { }
+  constructor(public researchFieldService: ResearchFieldService) { }
 
   public onInventoryClick(aspect: Aspect): void {
     this.researchFieldService.SelectedAspectInventory = aspect;
