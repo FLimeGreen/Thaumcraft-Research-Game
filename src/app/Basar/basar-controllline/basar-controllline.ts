@@ -1,22 +1,17 @@
 import { Component, signal } from '@angular/core';
 import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 import { BasarService } from '../../../Services/Basar_Service/basar-service';
+import { GoldRankDisplay } from '../../gold-rank-display/gold-rank-display';
 
 @Component({
   selector: 'app-basar-controllline',
-  imports: [],
+  imports: [GoldRankDisplay],
   templateUrl: './basar-controllline.html',
   styleUrl: './basar-controllline.css',
 })
 export class BasarControllline {
 
-  public Gold = signal(0);
-
-  constructor(private researchInventory: ResearchInventory,
-    private basar: BasarService
-  ) {
-    this.Gold = this.researchInventory.GoldSignal;
-  }
+  constructor(private basar: BasarService, private researchInventory: ResearchInventory) { }
 
   onKaufenClick() {
     const item = this.basar.SelectedItem;
@@ -25,7 +20,7 @@ export class BasarControllline {
 
     if (item.gekauft) { return; }
 
-    if (item.preis > this.Gold()) { return; }
+    if (item.preis > this.researchInventory.GoldSignal()) { return; }
 
     // Kauf durchführen
     this.researchInventory.subGold(item.preis);

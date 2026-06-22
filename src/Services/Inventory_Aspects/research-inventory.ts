@@ -131,4 +131,13 @@ export class ResearchInventory {
 
   }
 
+  private Rank: number = 0;
+
+  public RankSignal = signal(this.Rank);
+
+  addRank(amount: number) {
+    this.Rank = this.Rank + amount;
+    this.RankSignal.set(this.Rank);
+  }
+
 }

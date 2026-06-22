@@ -4,11 +4,12 @@ import { ResearchFieldService } from '../../../Services/Research_Field/research-
 import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
 import { CheatSheetService } from '../../../Services/CheatSheet/cheat-sheet-service';
 import { BasarService } from '../../../Services/Basar_Service/basar-service';
+import { GoldRankDisplay } from '../../gold-rank-display/gold-rank-display';
 
 @Component({
   selector: 'app-research-field-controllline',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GoldRankDisplay],
   templateUrl: './research-field-controllline.html',
   styleUrl: './research-field-controllline.css',
 })
@@ -18,14 +19,11 @@ export class ResearchFieldControllline {
 
   public AnzeigeCompleteResearchBool = signal(false);
 
-  public Gold = signal(0);
-
   constructor(private researchFieldService: ResearchFieldService,
     private researchInventory: ResearchInventory,
     private basar: BasarService,
     private CheatSheet: CheatSheetService
   ) {
-    this.Gold = this.researchInventory.GoldSignal;
   }
 
 
@@ -40,7 +38,8 @@ export class ResearchFieldControllline {
   onNewResearchClick(): void {
     console.log("New Research Start");
 
-    // Addiert Gold
+    // Addiert Rank und Gold
+    this.researchInventory.addRank(this.researchFieldService.getHecagonLockCount());
     this.researchInventory.addGold(25 * this.researchFieldService.getHecagonLockCount());
 
     // Gerneriert neues Forschung
