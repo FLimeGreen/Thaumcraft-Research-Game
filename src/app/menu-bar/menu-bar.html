@@ -16,4 +16,13 @@
     Basar
   </button>
 
+  <button
+    class="border border-gray-300 p-2"
+    [class.bg-gray-600]="activeTab() === 'fusion'"
+    (click)="onFusionClick()"
+  >
+    Aspect Fusion
+  </button>
+
+
 </div>
