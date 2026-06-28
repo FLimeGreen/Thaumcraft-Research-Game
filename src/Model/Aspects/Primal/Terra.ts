@@ -5,6 +5,7 @@ import { Vitreus } from "../Level1/Vitreus";
 import { Herba } from "../Level2/Herba";
 import { Iter } from "../Level2/Iter";
 import { Metallum } from "../Level2/Metallum";
+import { Perditio } from "./Perditio";
 
 export class Terra extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -19,7 +20,8 @@ export class Terra extends Aspect {
         new Vitreus(true),
         new Herba(true),
         new Iter(true),
-        new Metallum(true)
+        new Metallum(true),
+        new Perditio(true)
       ]);
     }
   }

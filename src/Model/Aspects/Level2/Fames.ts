@@ -2,6 +2,7 @@ import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Vacuos } from "../Level1/Vacuos";
 import { Victus } from "../Level1/Victus";
+import { Lucrum } from "../Level6/Lucrum";
 
 export class Fames extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -16,7 +17,8 @@ export class Fames extends Aspect {
         new Victus(true)
       ], [
         new Vacuos(true),
-        new Victus(true)
+        new Victus(true),
+        new Lucrum(true)
       ]);
     }
   }

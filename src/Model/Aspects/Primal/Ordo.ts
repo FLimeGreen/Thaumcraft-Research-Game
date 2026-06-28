@@ -5,6 +5,7 @@ import { Permutatio } from "../Level1/Permutatio";
 import { Potentia } from "../Level1/Potentia";
 import { Vitreus } from "../Level1/Vitreus";
 import { Sano } from "../Level2/Sano";
+import { Instrumentum } from "../Level6/Instrumentum";
 
 export class Ordo extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -19,7 +20,8 @@ export class Ordo extends Aspect {
         new Permutatio(true),
         new Potentia(true),
         new Vitreus(true),
-        new Sano(true)
+        new Sano(true),
+        new Instrumentum(true)
       ]);
     }
   }
