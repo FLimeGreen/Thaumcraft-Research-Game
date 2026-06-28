@@ -1,22 +1,22 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
-import { Ignis } from "../Primal/Ignis";
-import { Perditio } from "../Primal/Perditio";
+import { Instrumentum } from "../Level6/Instrumentum";
+import { Messis } from "../Level6/Messis";
 
-export class Gelum extends Aspect {
+export class Meto extends Aspect {
   constructor(ver_emthy: boolean = false) {
 
-    const path_img: string = "/assets/svgs/Gelum.svg";
+    const path_img: string = "/assets/svgs/Meto.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier1, path_img, [], []);
+      super(EnLevel.Tier7, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [
-        new Ignis(true),
-        new Perditio(true)
+      super(EnLevel.Tier7, path_img, [
+        new Instrumentum(true),
+        new Messis(true)
       ], [
-        new Ignis(true),
-        new Perditio(true)
+        new Instrumentum(true),
+        new Messis(true)
       ]);
     }
   }

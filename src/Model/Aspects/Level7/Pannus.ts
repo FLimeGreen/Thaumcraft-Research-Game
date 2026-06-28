@@ -1,22 +1,22 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
-import { Aer } from "../Primal/Aer";
-import { Ignis } from "../Primal/Ignis";
+import { Bestia } from "../Level2/Bestia";
+import { Instrumentum } from "../Level6/Instrumentum";
 
-export class Lux extends Aspect {
+export class Pannus extends Aspect {
   constructor(ver_emthy: boolean = false) {
 
-    const path_img: string = "/assets/svgs/Lux.svg";
+    const path_img: string = "/assets/svgs/Pannus.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier1, path_img, [], []);
+      super(EnLevel.Tier7, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [
-        new Ignis(true),
-        new Aer(true)
+      super(EnLevel.Tier7, path_img, [
+        new Bestia(true),
+        new Instrumentum(true)
       ], [
-        new Ignis(true),
-        new Aer(true)
+        new Bestia(true),
+        new Instrumentum(true)
       ]);
     }
   }
