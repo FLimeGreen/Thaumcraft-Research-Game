@@ -2,6 +2,7 @@ import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Motus } from "../Level1/Motus";
 import { Victus } from "../Level1/Victus";
+import { Corpus } from "../Level3/Corpus";
 
 export class Bestia extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -16,7 +17,8 @@ export class Bestia extends Aspect {
         new Victus(true)
       ], [
         new Motus(true),
-        new Victus(true)
+        new Victus(true),
+        new Corpus(true)
       ]);
     }
   }

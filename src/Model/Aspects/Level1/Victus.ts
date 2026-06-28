@@ -6,6 +6,7 @@ import { Herba } from "../Level2/Herba";
 import { Limus } from "../Level2/Limus";
 import { Mortuus } from "../Level2/Mortuus";
 import { Sano } from "../Level2/Sano";
+import { Spiritus } from "../Level3/Spiritus";
 import { Aqua } from "../Primal/Aqua";
 import { Terra } from "../Primal/Terra";
 
@@ -28,7 +29,8 @@ export class Victus extends Aspect {
         new Herba(true),
         new Limus(true),
         new Mortuus(true),
-        new Sano(true)
+        new Sano(true),
+        new Spiritus(true)
       ]);
     }
   }

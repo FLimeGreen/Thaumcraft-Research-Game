@@ -1,6 +1,7 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Victus } from "../Level1/Victus";
+import { Arbor } from "../Level3/Arbor";
 import { Terra } from "../Primal/Terra";
 
 export class Herba extends Aspect {
@@ -16,7 +17,8 @@ export class Herba extends Aspect {
         new Victus(true)
       ], [
         new Terra(true),
-        new Victus(true)
+        new Victus(true),
+        new Arbor(true)
       ]);
     }
   }

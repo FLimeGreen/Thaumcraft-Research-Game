@@ -1,6 +1,9 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Victus } from "../Level1/Victus";
+import { Corpus } from "../Level3/Corpus";
+import { Exanimis } from "../Level3/Exanimis";
+import { Spiritus } from "../Level3/Spiritus";
 import { Perditio } from "../Primal/Perditio";
 
 export class Mortuus extends Aspect {
@@ -16,7 +19,10 @@ export class Mortuus extends Aspect {
         new Victus(true)
       ], [
         new Perditio(true),
-        new Victus(true)
+        new Victus(true),
+        new Corpus(true),
+        new Exanimis(true),
+        new Spiritus(true)
       ]);
     }
   }

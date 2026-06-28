@@ -2,6 +2,8 @@ import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Potentia } from "../Level1/Potentia";
 import { Vacuos } from "../Level1/Vacuos";
+import { Auram } from "../Level3/Auram";
+import { Vitium } from "../Level3/Vitium";
 
 export class Praecantatio extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -16,7 +18,9 @@ export class Praecantatio extends Aspect {
         new Vacuos(true)
       ], [
         new Potentia(true),
-        new Vacuos(true)
+        new Vacuos(true),
+        new Auram(true),
+        new Vitium(true)
       ]);
     }
   }

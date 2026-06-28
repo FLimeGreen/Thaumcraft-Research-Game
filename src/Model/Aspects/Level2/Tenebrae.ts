@@ -1,6 +1,7 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Lux } from "../Level1/Lux";
+import { Alienis } from "../Level3/Alienis";
 import { Perditio } from "../Primal/Perditio";
 
 export class Tenebrae extends Aspect {
@@ -16,7 +17,8 @@ export class Tenebrae extends Aspect {
         new Lux(true)
       ], [
         new Perditio(true),
-        new Lux(true)
+        new Lux(true),
+        new Alienis(true)
       ]);
     }
   }

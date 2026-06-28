@@ -6,6 +6,7 @@ import { Vacuos } from "../Level1/Vacuos";
 import { Venenum } from "../Level1/Venenum";
 import { Mortuus } from "../Level2/Mortuus";
 import { Vinculum } from "../Level2/Vinculum";
+import { Vitium } from "../Level3/Vitium";
 
 export class Perditio extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -21,7 +22,8 @@ export class Perditio extends Aspect {
         new Vacuos(true),
         new Venenum(true),
         new Mortuus(true),
-        new Vinculum(true)
+        new Vinculum(true),
+        new Vitium(true)
       ]);
     }
   }

@@ -4,6 +4,7 @@ import { Bestia } from "../Level2/Bestia";
 import { Iter } from "../Level2/Iter";
 import { Vinculum } from "../Level2/Vinculum";
 import { Volatus } from "../Level2/Volatus";
+import { Exanimis } from "../Level3/Exanimis";
 import { Aer } from "../Primal/Aer";
 import { Ordo } from "../Primal/Ordo";
 
@@ -24,7 +25,8 @@ export class Motus extends Aspect {
         new Bestia(true),
         new Iter(true),
         new Vinculum(true),
-        new Volatus(true)
+        new Volatus(true),
+        new Exanimis(true)
       ]);
     }
   }
