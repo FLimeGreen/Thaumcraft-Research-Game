@@ -163,62 +163,44 @@ export class ResearchInventory {
     this.InventoryLevel7Signal.set([...this.ListOfAspectsInventoryLevel7]);
   }
 
+  private readonly allInventories = () => [
+    this.ListOfAspectsInventoryPrimal,
+    this.ListOfAspectsInventoryLevel1,
+    this.ListOfAspectsInventoryLevel2,
+    this.ListOfAspectsInventoryLevel3,
+    this.ListOfAspectsInventoryLevel4,
+    this.ListOfAspectsInventoryLevel5,
+    this.ListOfAspectsInventoryLevel6,
+    this.ListOfAspectsInventoryLevel7
+  ];
+
+  private findEntry(aspect: Aspect) {
+    const name = aspect.constructor.name;
+    for (const list of this.allInventories()) {
+      const entry = list.find(e => e.aspect.constructor.name === name);
+      if (entry) return entry;
+    }
+    return null;
+  }
+
   getCount(aspect: Aspect): number {
-    const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
-      e => e.aspect.constructor.name === aspect.constructor.name
-    );
-    if (entryinPrimal) {
-      return entryinPrimal.count;
-    }
-
-    const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
-      e => e.aspect.constructor.name === aspect.constructor.name
-    );
-    if (entryinLevel1) {
-      return entryinLevel1.count;
-    }
-
-    return NaN;
+    return this.findEntry(aspect)?.count ?? NaN;
   }
 
   addInventoryCount(aspect: Aspect, count: number = 1) {
-    const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
-      e => e.aspect.constructor.name === aspect.constructor.name
-    );
-    if (entryinPrimal) {
-      entryinPrimal.count += count;
-      console.log(aspect);
-      console.log(count);
+    const entry = this.findEntry(aspect);
+    if (entry) {
+      entry.count += count;
+      console.log(aspect, count);
     }
-
-    const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
-      e => e.aspect.constructor.name === aspect.constructor.name
-    );
-    if (entryinLevel1) {
-      entryinLevel1.count += count;
-      console.log(aspect);
-      console.log(count);
-    }
-
-    console.log("Add Aspect");
     this.changed();
   }
 
   subInventoryCount(aspect: Aspect, count: number = 1) {
-    const entryinPrimal = this.ListOfAspectsInventoryPrimal.find(
-      e => e.aspect.constructor.name === aspect.constructor.name
-    );
-    if (entryinPrimal) {
-      entryinPrimal.count -= count;
+    const entry = this.findEntry(aspect);
+    if (entry) {
+      entry.count -= count;
     }
-
-    const entryinLevel1 = this.ListOfAspectsInventoryLevel1.find(
-      e => e.aspect.constructor.name === aspect.constructor.name
-    );
-    if (entryinLevel1) {
-      entryinLevel1.count -= count;
-    }
-
     this.changed();
   }
 
