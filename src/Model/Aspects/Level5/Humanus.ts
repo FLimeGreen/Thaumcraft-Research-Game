@@ -1,22 +1,22 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
-import { Ignis } from "../Primal/Ignis";
-import { Perditio } from "../Primal/Perditio";
+import { Bestia } from "../Level2/Bestia";
+import { Cognitio } from "../Level4/Cognitio";
 
-export class Gelum extends Aspect {
+export class Humanus extends Aspect {
   constructor(ver_emthy: boolean = false) {
 
-    const path_img: string = "/assets/svgs/Gelum.svg";
+    const path_img: string = "/assets/svgs/Humanus.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier1, path_img, [], []);
+      super(EnLevel.Tier5, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [
-        new Ignis(true),
-        new Perditio(true)
+      super(EnLevel.Tier5, path_img, [
+        new Bestia(true),
+        new Cognitio(true)
       ], [
-        new Ignis(true),
-        new Perditio(true)
+        new Bestia(true),
+        new Cognitio(true)
       ]);
     }
   }

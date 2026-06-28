@@ -9,9 +9,9 @@ export class Cognitio extends Aspect {
     const path_img: string = "/assets/svgs/Cognitio.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier3, path_img, [], []);
+      super(EnLevel.Tier4, path_img, [], []);
     } else {
-      super(EnLevel.Tier3, path_img, [
+      super(EnLevel.Tier4, path_img, [
         new Ignis(true),
         new Spiritus(true)
       ], [

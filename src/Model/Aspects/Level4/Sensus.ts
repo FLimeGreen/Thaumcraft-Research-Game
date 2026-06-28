@@ -9,9 +9,9 @@ export class Sensus extends Aspect {
     const path_img: string = "/assets/svgs/Sensus.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier1, path_img, [], []);
+      super(EnLevel.Tier4, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [
+      super(EnLevel.Tier4, path_img, [
         new Aer(true),
         new Spiritus(true)
       ], [
