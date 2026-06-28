@@ -4,6 +4,7 @@ import { Gelum } from "../Level1/Gelum";
 import { Lux } from "../Level1/Lux";
 import { Potentia } from "../Level1/Potentia";
 import { Cognitio } from "../Level4/Cognitio";
+import { Telum } from "../Level7/Telum";
 
 export class Ignis extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -17,7 +18,8 @@ export class Ignis extends Aspect {
         new Gelum(true),
         new Lux(true),
         new Potentia(true),
-        new Cognitio(true)
+        new Cognitio(true),
+        new Telum(true)
       ]);
     }
   }

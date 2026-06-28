@@ -5,6 +5,7 @@ import { Cognitio } from "../Level4/Cognitio";
 import { Instrumentum } from "../Level6/Instrumentum";
 import { Lucrum } from "../Level6/Lucrum";
 import { Messis } from "../Level6/Messis";
+import { Fabrico } from "../Level7/Fabrico";
 import { Perditio } from "../Primal/Perditio";
 
 export class Humanus extends Aspect {
@@ -24,7 +25,8 @@ export class Humanus extends Aspect {
         new Instrumentum(true),
         new Lucrum(true),
         new Messis(true),
-        new Perditio(true)
+        new Perditio(true),
+        new Fabrico(true)
       ]);
     }
   }

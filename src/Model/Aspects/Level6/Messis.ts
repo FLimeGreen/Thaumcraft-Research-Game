@@ -2,6 +2,7 @@ import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Herba } from "../Level2/Herba";
 import { Humanus } from "../Level5/Humanus";
+import { Meto } from "../Level7/Meto";
 
 export class Messis extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -16,7 +17,8 @@ export class Messis extends Aspect {
         new Humanus(true)
       ], [
         new Herba(true),
-        new Humanus(true)
+        new Humanus(true),
+        new Meto(true)
       ]);
     }
   }
