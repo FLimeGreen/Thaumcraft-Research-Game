@@ -3,7 +3,7 @@
   <table class="border-collapse border border-gray-300">
     <thead>
       <tr>
-        <th class="border border-gray-300 px-4 py-2 text-left">Amount</th>
+        <th class="border border-gray-300 px-4 py-2 text-left">Menge</th>
         <th class="border border-gray-300 px-4 py-2 text-left">Aspect</th>
       </tr>
     </thead>
@@ -41,29 +41,15 @@
     </tbody>
   </table>
 
-  <table class="border-collapse border border-gray-300">
-    <thead>
-      <tr>
-        <th class="border border-gray-300 px-4 py-2 text-left">#</th>
-        <th class="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let obj of inventoryLevel1(); let i = index"
-      [class.border-blue-500]="researchFieldService.SelectedAspectInventory === obj.aspect"
-      [class.border-gray-300]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+  <app-research-inventory-field-table [inventory]="inventoryLevel1"></app-research-inventory-field-table>
+  <app-research-inventory-field-table [inventory]="inventoryLevel2"></app-research-inventory-field-table>
+  <app-research-inventory-field-table [inventory]="inventoryLevel3"></app-research-inventory-field-table>
 
-      [class.border-3]="researchFieldService.SelectedAspectInventory === obj.aspect"
-      [class.border]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+  <div class="flex flex-col">
+    <app-research-inventory-field-table [inventory]="inventoryLevel4"></app-research-inventory-field-table>
+    <app-research-inventory-field-table class="mt-4" [inventory]="inventoryLevel5"></app-research-inventory-field-table>
+  </div>
 
-      (click)="onInventoryClick(obj.aspect)"
-      >
-        <th class="border border-gray-300"> {{ obj.count }}</th>
-        <td class="border border-gray-300">
-          <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
+  <app-research-inventory-field-table [inventory]="inventoryLevel6"></app-research-inventory-field-table>
+  <app-research-inventory-field-table [inventory]="inventoryLevel7"></app-research-inventory-field-table>
 </div>

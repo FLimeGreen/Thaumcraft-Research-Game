@@ -1,0 +1,24 @@
+<table class="border-collapse border border-gray-300">
+    <thead>
+      <tr>
+        <th class="border border-gray-300 px-4 py-2 text-left">#</th>
+        <th class="border border-gray-300 px-4 py-2 text-left">Aspect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of inventory(); let i = index"
+      [class.border-blue-500]="researchFieldService.SelectedAspectInventory === obj.aspect"
+      [class.border-gray-300]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+
+      [class.border-3]="researchFieldService.SelectedAspectInventory === obj.aspect"
+      [class.border]="researchFieldService.SelectedAspectInventory !== obj.aspect"
+
+      (click)="onInventoryClick(obj.aspect)"
+      >
+        <th class="border border-gray-300"> {{ obj.count }}</th>
+        <td class="border border-gray-300">
+          <img class="w-16 h-16" [src]="obj.aspect.IMG" alt="Hex Field Image">
+        </td>
+      </tr>
+    </tbody>
+  </table>
