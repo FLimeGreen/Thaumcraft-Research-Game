@@ -2,6 +2,8 @@ import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
 import { Victus } from "../Level1/Victus";
 import { Mortuus } from "../Level2/Mortuus";
+import { Cognitio } from "../Level4/Cognitio";
+import { Sensus } from "../Level4/Sensus";
 
 export class Spiritus extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -16,7 +18,9 @@ export class Spiritus extends Aspect {
         new Mortuus(true)
       ], [
         new Victus(true),
-        new Mortuus(true)
+        new Mortuus(true),
+        new Cognitio(true),
+        new Sensus(true)
       ]);
     }
   }

@@ -7,6 +7,7 @@ import { Vacuos } from "../Level1/Vacuos";
 import { Volatus } from "../Level2/Volatus";
 import { Arbor } from "../Level3/Arbor";
 import { Auram } from "../Level3/Auram";
+import { Sensus } from "../Level4/Sensus";
 
 export class Aer extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -23,7 +24,8 @@ export class Aer extends Aspect {
         new Vacuos(true),
         new Volatus(true),
         new Arbor(true),
-        new Auram(true)
+        new Auram(true),
+        new Sensus(true)
       ]);
     }
   }
