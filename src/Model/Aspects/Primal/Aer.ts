@@ -4,6 +4,7 @@ import { Lux } from "../Level1/Lux";
 import { Motus } from "../Level1/Motus";
 import { Tempestas } from "../Level1/Tempestas";
 import { Vacuos } from "../Level1/Vacuos";
+import { Volatus } from "../Level2/Volatus";
 
 export class Aer extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -17,7 +18,8 @@ export class Aer extends Aspect {
         new Lux(true),
         new Motus(true),
         new Tempestas(true),
-        new Vacuos(true)
+        new Vacuos(true),
+        new Volatus(true)
       ]);
     }
   }

@@ -3,6 +3,7 @@ import { EnLevel } from "../Enum_Level";
 import { Tempestas } from "../Level1/Tempestas";
 import { Venenum } from "../Level1/Venenum";
 import { Victus } from "../Level1/Victus";
+import { Limus } from "../Level2/Limus";
 
 export class Aqua extends Aspect {
   constructor(ver_emthy: boolean = false) {
@@ -15,7 +16,8 @@ export class Aqua extends Aspect {
       super(EnLevel.Primal, path_img, [], [
         new Tempestas(true),
         new Venenum(true),
-        new Victus(true)
+        new Victus(true),
+        new Limus(true)
       ]);
     }
   }

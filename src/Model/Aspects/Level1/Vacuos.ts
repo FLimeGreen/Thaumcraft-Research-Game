@@ -1,5 +1,8 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
+import { Fames } from "../Level2/Fames";
+import { Praecantatio } from "../Level2/Praecantatio";
+import { Tenebrae } from "../Level2/Tenebrae";
 import { Aer } from "../Primal/Aer";
 import { Perditio } from "../Primal/Perditio";
 
@@ -16,7 +19,10 @@ export class Vacuos extends Aspect {
         new Perditio(true)
       ], [
         new Aer(true),
-        new Perditio(true)
+        new Perditio(true),
+        new Fames(true),
+        new Praecantatio(true),
+        new Tenebrae(true)
       ]);
     }
   }

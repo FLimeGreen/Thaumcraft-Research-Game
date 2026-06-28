@@ -1,5 +1,6 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
+import { Tenebrae } from "../Level2/Tenebrae";
 import { Aer } from "../Primal/Aer";
 import { Ignis } from "../Primal/Ignis";
 
@@ -16,7 +17,8 @@ export class Lux extends Aspect {
         new Aer(true)
       ], [
         new Ignis(true),
-        new Aer(true)
+        new Aer(true),
+        new Tenebrae(true)
       ]);
     }
   }

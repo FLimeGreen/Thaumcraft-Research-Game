@@ -1,5 +1,6 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
+import { Praecantatio } from "../Level2/Praecantatio";
 import { Ignis } from "../Primal/Ignis";
 import { Ordo } from "../Primal/Ordo";
 
@@ -16,7 +17,8 @@ export class Potentia extends Aspect {
         new Ordo(true)
       ], [
         new Ignis(true),
-        new Ordo(true)
+        new Ordo(true),
+        new Praecantatio(true)
       ]);
     }
   }

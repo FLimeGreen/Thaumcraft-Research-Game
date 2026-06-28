@@ -1,5 +1,6 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
+import { Metallum } from "../Level2/Metallum";
 import { Ordo } from "../Primal/Ordo";
 import { Terra } from "../Primal/Terra";
 
@@ -16,7 +17,8 @@ export class Vitreus extends Aspect {
         new Terra(true)
       ], [
         new Ordo(true),
-        new Terra(true)
+        new Terra(true),
+        new Metallum(true)
       ]);
     }
   }
