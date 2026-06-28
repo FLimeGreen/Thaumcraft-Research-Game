@@ -1,22 +1,22 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
-import { Ordo } from "../Primal/Ordo";
-import { Perditio } from "../Primal/Perditio";
+import { Bestia } from "../Level2/Bestia";
+import { Mortuus } from "../Level2/Mortuus";
 
-export class Permutatio extends Aspect {
+export class Corpus extends Aspect {
   constructor(ver_emthy: boolean = false) {
 
-    const path_img: string = "/assets/svgs/Permutatio.svg";
+    const path_img: string = "/assets/svgs/Corpus.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier1, path_img, [], []);
+      super(EnLevel.Tier3, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [
-        new Ordo(true),
-        new Perditio(true)
+      super(EnLevel.Tier3, path_img, [
+        new Bestia(true),
+        new Mortuus(true)
       ], [
-        new Ordo(true),
-        new Perditio(true)
+        new Bestia(true),
+        new Mortuus(true)
       ]);
     }
   }

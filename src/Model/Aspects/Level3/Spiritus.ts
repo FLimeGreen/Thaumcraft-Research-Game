@@ -1,22 +1,22 @@
 import { Aspect } from "../Aspect";
 import { EnLevel } from "../Enum_Level";
-import { Aer } from "../Primal/Aer";
-import { Perditio } from "../Primal/Perditio";
+import { Victus } from "../Level1/Victus";
+import { Mortuus } from "../Level2/Mortuus";
 
-export class Vacuos extends Aspect {
+export class Spiritus extends Aspect {
   constructor(ver_emthy: boolean = false) {
 
-    const path_img: string = "/assets/svgs/Vacuos.svg";
+    const path_img: string = "/assets/svgs/Spiritus.svg";
 
     if (ver_emthy) {
-      super(EnLevel.Tier1, path_img, [], []);
+      super(EnLevel.Tier3, path_img, [], []);
     } else {
-      super(EnLevel.Tier1, path_img, [
-        new Aer(true),
-        new Perditio(true)
+      super(EnLevel.Tier3, path_img, [
+        new Victus(true),
+        new Mortuus(true)
       ], [
-        new Aer(true),
-        new Perditio(true)
+        new Victus(true),
+        new Mortuus(true)
       ]);
     }
   }
