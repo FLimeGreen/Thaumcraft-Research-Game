@@ -28,7 +28,7 @@ export class FusionItem {
       this.update_View();
     });
 
-    this.title.set("Nothing Selected");
+    this.update_View();
   }
 
   update_View() {
@@ -53,14 +53,20 @@ export class FusionItem {
 
     if (this.dis_typ === 'firstComponent') {
       this.title.set(SAspect.Bestandteile[0].constructor.name);
+      this.IMG.set(SAspect.Bestandteile[0].IMG);
+      this.menge.set(this.researchInventory.getCount(SAspect.Bestandteile[0]));
     }
 
     if (this.dis_typ === 'secondComponent') {
       this.title.set(SAspect.Bestandteile[1].constructor.name);
+      this.IMG.set(SAspect.Bestandteile[1].IMG);
+      this.menge.set(this.researchInventory.getCount(SAspect.Bestandteile[1]));
     }
 
     if (this.dis_typ === 'ResultComponent') {
       this.title.set(SAspect.constructor.name);
+      this.IMG.set(SAspect.IMG);
+      this.menge.set(this.researchInventory.getCount(SAspect));
     }
 
   }
