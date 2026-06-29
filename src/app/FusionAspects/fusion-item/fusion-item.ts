@@ -1,6 +1,5 @@
 import { Component, Input, signal } from '@angular/core';
 import { ResearchInventory } from '../../../Services/Inventory_Aspects/research-inventory';
-import { sign } from 'crypto';
 import { ResearchInventoryField } from '../../Research/research-inventory-field/research-inventory-field';
 import { ResearchFieldService } from '../../../Services/Research_Field/research-field-Service';
 import { EnLevel } from '../../../Model/Aspects/Enum_Level';
@@ -27,7 +26,9 @@ export class FusionItem {
       // Aufruf deiner Funktion
       this.update_View();
     });
+  }
 
+  ngOnInit() {
     this.update_View();
   }
 

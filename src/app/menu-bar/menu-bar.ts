@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MenuBar {
 
   private router: Router;
-  activeTab = signal<'research' | 'basar' | 'fusion'>('research');
+  activeTab = signal<'research' | 'basar' | 'fusion' | 'defusion'>('research');
 
   constructor(router: Router) {
     this.router = router;
@@ -30,5 +30,10 @@ export class MenuBar {
   onFusionClick() {
     this.router.navigate(["/fusion"]);
     this.activeTab.set('fusion');
+  }
+
+  onDefusionClick() {
+    this.router.navigate(["/defusion"]);
+    this.activeTab.set('defusion');
   }
 }
